@@ -26,11 +26,12 @@ Physical Components in the Unit:
 1) Conveyor Belts 
 	- Parameters: Speed (Units per minute/RPMs) & Direction
 	- Have: Motors (RPMs, temperature) & Sensors (item present, jam detected)
-2) Stations 
+2) Stations (machines) 
 	- Types: Filling, Packaging, Inspection, Labeling 
 	- Parameters: Status, Item processed count, rate of processing, etc
 	- Have: Sensors (item present, jam detected, etc)
 3) Other Sensors
 	- Jam detection, temperature, speed, etc
+
 
 
