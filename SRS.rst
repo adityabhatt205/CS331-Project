@@ -101,12 +101,39 @@ low-level industrial controllers such as PLCs.
 2. Overall Description
 =====================
 
+This system is intended for a small manufacturing unit producing packaged consumer goods (soft drinks). It focuses on real-time monitoring, basic control, rule-based automation, alerting, and simulation of industrial processes using a 2D digital representation of the factory floor.
+
+
 2.1 User Needs
 --------------
 
-2.2 Assumptions and Dependencies
---------------------------------
+The primary users of the system are the owner and on-site personnel of a small manufacturing unit. Their needs are outlined below.
 
+* The user needs a **centralized visual interface** to view the factory floor layout and monitor the operational status of machines, conveyors, and stations in real time.
+* The user needs the ability to **remotely control basic machine operations**, such as starting and stopping conveyor belts and adjusting operating speeds.
+* The user needs the system to **automatically handle common fault scenarios**, including conveyor jams, machine faults, overheating, and downstream blockages, without requiring immediate manual intervention.
+* The user needs **real-time alerts and notifications** to be generated when abnormal events or critical faults occur.
+* The user needs the system to **maintain historical logs** of machine states, faults, and automation actions for later analysis and decision-making.
+* The user needs a **simulation mode** that allows testing of automation rules and fault scenarios in a virtual environment before applying them to the live system.
+* Different users need **role-based access control**, ensuring that operators, supervisors, and administrators have appropriate permissions based on their responsibilities.
+* Supervisors and administrators need a **rule configuration interface** to create, modify, enable, or disable automation rules as required.
+* The user needs the ability to **switch between live mode and simulation mode** in a controlled and safe manner.
+
+
+2.2 Assumptions and Dependencies
+-------------------------------
+
+The following assumptions and dependencies have been considered during the design and development of the system:
+
+* The manufacturing unit is a **small-scale facility**, and the system is not intended to replace full-scale industrial SCADA solutions.
+* The digital twin represents the **logical and operational state** of the plant using a 2D visualization rather than a detailed 3D physical model.
+* All sensors, machines, and conveyors are **simulated in software**, and no real industrial hardware or PLC integration is required.
+* Sensor data such as temperature, speed, jam detection, and item count are assumed to be **available or generated virtually** by the system.
+* Automation is implemented using **deterministic rule-based logic** (If–Then conditions) and does not involve machine learning or artificial intelligence.
+* The system assumes a **stable network connection** between backend services and the frontend dashboard.
+* Alerts are assumed to be delivered through **software-based notification mechanisms** (dashboard alerts, logs), not physical alarms.
+* The system depends on standard software components such as a database for logging, backend services for automation and control, and a frontend interface for visualization and interaction.
+* The system is intended for **educational and demonstrative purposes** as part of a software engineering laboratory project.
 
 
 3. System Features and Requirements
@@ -194,4 +221,5 @@ Example: Only authenticated users can access admin API
 
 5.3 To Be Determined (TBD) List
 ------------------------------
+
 
