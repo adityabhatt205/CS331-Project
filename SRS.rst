@@ -7,13 +7,9 @@ Introduction
 1.1 Purpose
 -----------
 
-This Software Requirements Specification (SRS) document describes the
-requirements of the *Factory Floor Visualization and Control System* for a
-small manufacturing unit producing packaged consumer goods (soft drinks).
+This Software Requirements Specification (SRS) document describes the requirements of the *Factory Floor Visualization and Control System* for a small manufacturing unit producing packaged consumer goods (soft drinks).
 
-The purpose of this document is to clearly define the system’s functionality,
-scope, and constraints so that all stakeholders share a common understanding
-of the system before design, development, and testing activities begin.
+The purpose of this document is to clearly define the system's functionality, scope, and constraints so that all stakeholders share a common understanding of the system before design, development, and testing activities begin.
 
 1.2 Intended Audience
 ---------------------
@@ -30,8 +26,7 @@ This document is intended for the following stakeholders:
 1.3 Intended Use
 ----------------
 
-The Factory Floor Visualization and Control System is used to monitor, control,
-and analyze factory floor operations from a centralized interface.
+The Factory Floor Visualization and Control System is used to monitor, control, and analyze factory floor operations from a centralized interface.
 
 Authorized users use the system to:
 
@@ -46,23 +41,19 @@ Authorized users use the system to:
 1.4 Product Scope
 -----------------
 
-The system provides a digital supervisory view of the factory floor to improve
-operational efficiency, fault handling, and decision-making.
+The system provides a digital supervisory view of the factory floor to improve operational efficiency, fault handling, and decision-making.
 
 The product includes the following capabilities:
 
 - 2D visualization of machines, conveyor belts, and stations
 - Real-time monitoring of machine states and sensor values
-- Manual control of belts and stations, including start, stop, and speed
-  adjustment
-- Rule-based automation to respond to predefined scenarios such as jams,
-  overheating, and downstream blockages
+- Manual control of belts and stations, including start, stop, and speed adjustment
+- Rule-based automation to respond to predefined scenarios such as jams, overheating, and downstream blockages
 - Alert and notification mechanisms for abnormal and emergency events
 - Logging and history management for future analysis
 - Simulation mode for testing automation rules and fault conditions
 
-The system functions as a supervisory control layer and does not replace
-low-level industrial controllers such as PLCs.
+The system functions as a supervisory control layer and does not replace low-level industrial controllers such as PLCs.
 
 1.5 Definitions and Acronyms
 ----------------------------
@@ -80,8 +71,7 @@ low-level industrial controllers such as PLCs.
    * - Conveyor Belt
      - Mechanized belt used to transport items between stations
    * - Station
-     - Machine that performs a specific operation such as Filling,
-       Packaging, Inspection, or Labeling
+     - Machine that performs a specific operation such as Filling, Packaging, Inspection, or Labeling
    * - RPM
      - Revolutions Per Minute, indicating motor speed
    * - Automation Rule
@@ -159,6 +149,9 @@ When [event], the system shall [response]
 
 3.2.1 Performance
 ^^^^^^^^^^^^^^^^^
+
+* The visualization must work with a minimum of 30 frames per second (FPS).
+
 Example: 95% of requests shall return in under 2 seconds
 
 3.2.2 Security
