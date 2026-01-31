@@ -99,7 +99,7 @@ low-level industrial controllers such as PLCs.
 
 
 2. Overall Description
-=====================
+======================
 
 This system is intended for a small manufacturing unit producing packaged consumer goods (soft drinks). It focuses on real-time monitoring, basic control, rule-based automation, alerting, and simulation of industrial processes using a 2D digital representation of the factory floor.
 
@@ -121,7 +121,7 @@ The primary users of the system are the owner and on-site personnel of a small m
 
 
 2.2 Assumptions and Dependencies
--------------------------------
+--------------------------------
 
 The following assumptions and dependencies have been considered during the design and development of the system:
 
@@ -137,16 +137,16 @@ The following assumptions and dependencies have been considered during the desig
 
 
 3. System Features and Requirements
-==================================
+===================================
 
 3.1 Functional Requirements
 ---------------------------
 
 3.1.1 Numbered and Described
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3.1.2 EARS Format
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 When [event], the system shall [response]
 
 3.1.3 Specification by Example / BDD
@@ -158,7 +158,7 @@ When [event], the system shall [response]
 -------------------------------
 
 3.2.1 Performance
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 Example: 95% of requests shall return in under 2 seconds
 
 3.2.2 Security
@@ -170,13 +170,13 @@ Example: Only authenticated users can access admin API
 
 
 3.3 External Interface Requirements
-----------------------------------
+-----------------------------------
 
 3.3.1 Performance Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3.3.2 Safety Requirements
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3.3.3 Security Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -185,41 +185,41 @@ Example: Only authenticated users can access admin API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3.3.5 Business Rules
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 
 3.4 System Features
-------------------
+-------------------
 
 
 
 4. Other Requirements
-====================
+=====================
 
 4.1 Database Requirements
-------------------------
+-------------------------
 
 4.2 Legal and Regulatory Requirements
-------------------------------------
+-------------------------------------
 
 4.3 Internationalization and Localization
 -----------------------------------------
 
 4.4 Risk Management (FMEA Matrix)
---------------------------------
+---------------------------------
 
 
 
 5. Appendices
-============
+=============
 
 5.1 Glossary
------------
+------------
 
 5.2 Use Cases and Diagrams
--------------------------
+--------------------------
 
 5.3 To Be Determined (TBD) List
-------------------------------
+-------------------------------
 
 
