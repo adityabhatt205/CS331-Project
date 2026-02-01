@@ -131,21 +131,77 @@ The following assumptions and dependencies have been considered during the desig
 
 3.1 Functional Requirements
 ---------------------------
+This section describes the functional behavior of the system. Each requirement
+defines what the system does under specific conditions.
+
 
 3.1.1 Numbered and Described
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FR-1: Factory Floor Visualization  
+The system displays a 2D layout of the factory floor, showing conveyor belts,
+stations, and their current operational status.
+
+FR-2: Live Status Monitoring  
+The system shows live machine states such as Running, Idle, or Fault, along
+with values like speed, temperature, and item count.
+
+FR-3: Machine and Conveyor Control  
+The system allows authorized users to start, stop, and adjust the speed of
+conveyor belts and stations.
+
+FR-4: Automation Handling  
+The system executes predefined automation rules when specific fault or
+operational conditions occur.
+
+FR-5: Alerts and Notifications  
+The system generates alerts for abnormal events such as jams, overheating,
+or emergency shutdowns.
+
+FR-6: Logging and History  
+The system records operational events and sensor data for future analysis.
+
+FR-7: Simulation Mode  
+The system provides a simulation mode to test automation logic and fault
+scenarios without affecting live operations.
+
 
 3.1.2 EARS Format
 ^^^^^^^^^^^^^^^^^
 When [event], the system shall [response]
 
+- When a jam is detected on a conveyor belt, the system stops the affected belt
+  and generates an alert.
+- When a machine temperature exceeds the safe limit, the system triggers an
+  automatic shutdown and notifies the on-site team.
+- When a downstream station is unavailable, the system pauses upstream
+  conveyors to prevent item buildup.
+- When the system operates in simulation mode, the system processes virtual
+  sensor inputs instead of real hardware data.
+
+
 3.1.3 Specification by Example / BDD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 (e.g., Gherkin)
 
+**Scenario: Conveyor jam handling**
+
+Given the conveyor belt is running  
+And items move through the belt  
+When a jam is detected  
+Then the system stops the conveyor belt  
+And the system sends an alert to the operators  
+
+**Scenario: Simulation mode execution**
+
+Given the system is in simulation mode  
+When a fault scenario is triggered  
+Then the system executes automation rules  
+And no real machines are affected 
+
 
 3.2 Non-Functional Requirements
 -------------------------------
+This section defines quality attributes and constraints of the system.
 
 3.2.1 Performance
 ^^^^^^^^^^^^^^^^^
@@ -156,10 +212,19 @@ Example: 95% of requests shall return in under 2 seconds
 
 3.2.2 Security
 ^^^^^^^^^^^^^^
-Example: Only authenticated users can access admin API
+
+- The system allows access only to authenticated users.
+- The system enforces role-based access control for Operators, Supervisors,
+  and Administrators.
+- Only administrators access system configuration and automation rules.
 
 3.2.3 Usability, Reliability, Compliance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The user interface remains simple and easy to understand.
+- The system continues operating during minor faults without crashing.
+- The system maintains logs to support audits and analysis.
+- The system follows basic industrial safety and data protection practices.
 
 
 3.3 External Interface Requirements
@@ -167,22 +232,47 @@ Example: Only authenticated users can access admin API
 
 3.3.1 Performance Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- The system communicates with sensors and machines with minimal delay.
+- Data exchange supports continuous monitoring without loss of updates.
+
 
 3.3.2 Safety Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+- The system supports emergency stop scenarios.
+- The system prevents unsafe operations during fault conditions.
+- The system avoids conflicting control commands.
 
 3.3.3 Security Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- External interfaces accept requests only from authorized sources.
+- Communication between system components uses secure channels.
+
 
 3.3.4 Software Quality Attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+- Reliability: The system operates consistently under normal conditions.
+- Maintainability: The system allows easy updates to rules and configurations.
+- Scalability: The system supports adding new machines and sensors.
+
 3.3.5 Business Rules
 ^^^^^^^^^^^^^^^^^^^^
+- Only supervisors and administrators modify automation rules.
+- Simulation mode is disabled for regular operators.
+- Live mode and simulation mode do not operate simultaneously.
 
 
 3.4 System Features
 -------------------
+The system includes the following major features:
+
+- Factory floor visualization
+- Live monitoring of machines and sensors
+- Centralized control of belts and stations
+- Rule-based automation
+- Alert and notification handling
+- Historical logs and analysis
+- Simulation for testing and validation
 
 
 
@@ -214,5 +304,6 @@ Example: Only authenticated users can access admin API
 
 5.3 To Be Determined (TBD) List
 -------------------------------
+
 
 
