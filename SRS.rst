@@ -281,6 +281,20 @@ The system includes the following major features:
 
 4.1 Database Requirements
 -------------------------
+The system uses a centralized database to store operational and configuration
+data.
+
+The database stores the following information:
+
+- User accounts, roles, and access privileges
+- Machine and conveyor configuration details
+- Automation rules and their current status
+- System logs, alerts, and event history
+- Simulation data used for testing scenarios
+
+The database ensures data consistency and supports read and write operations
+in near real time. Logged data remains available for future analysis and
+troubleshooting.
 
 4.2 Legal and Regulatory Requirements
 -------------------------------------
@@ -304,6 +318,7 @@ The system includes the following major features:
 
 5.3 To Be Determined (TBD) List
 -------------------------------
+
 
 
 
