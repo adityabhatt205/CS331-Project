@@ -131,8 +131,4 @@ This structure ensures that the digital twin remains a reliable, safe, and exten
 
 ---
 
-## Conclusion
-
-This UML Use Case Diagram provides a clear and structured representation of how users and external systems interact with the Digital Twin–Based Industrial Automation System.  
-It effectively captures authentication, monitoring, automation, control, alerting, simulation, and logging functionalities while maintaining proper UML semantics.
 
