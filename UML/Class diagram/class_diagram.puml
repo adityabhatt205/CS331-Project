@@ -1,0 +1,202 @@
+@startuml
+' =========================
+' GLOBAL STYLING
+' =========================
+skinparam backgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundcorner 15
+
+skinparam class {
+  BackgroundColor #F8F9FA
+  BorderColor #2C3E50
+  ArrowColor #2C3E50
+  FontName Consolas
+  FontSize 12
+}
+
+skinparam package {
+  BackgroundColor #ECF0F1
+  BorderColor #34495E
+  FontStyle bold
+}
+
+' =========================
+' USER & SECURITY
+' =========================
+package "User & Security" {
+
+abstract class User {
+  - userId : int
+  - username : String
+  - passwordHash : String
+  # role : String
+  --
+  + login(username : String, password : String) : boolean
+  + logout() : void
+  # hasPermission(action : String) : boolean
+}
+
+class Admin {
+  + manageUsers() : void
+  + configureAutomationRules() : void
+}
+
+class Supervisor {
+  + approveAutomation() : void
+  + monitorOperations() : void
+}
+
+class Operator {
+  + controlMachines() : void
+  + viewLiveStatus() : void
+}
+
+User <|-- Admin
+User <|-- Supervisor
+User <|-- Operator
+}
+
+' =========================
+' VISUALIZATION & STATUS
+' =========================
+package "Visualization & Monitoring" {
+
+class FactoryFloorVisualization {
+  - layoutMap : String
+  --
+  + renderFloor() : void
+  + displayLiveStatus() : void
+  + displaySimulationResult() : void
+}
+
+class LiveStatus {
+  - temperature : float
+  - speed : float
+  - machineState : String
+  --
+  + updateStatus() : void
+}
+}
+
+' =========================
+' MACHINES & SENSORS
+' =========================
+package "Machines & Sensors" {
+
+class Machine {
+  - machineId : int
+  - status : String
+  --
+  + start() : void
+  + stop() : void
+  + adjustSpeed(value : int) : void
+  # validateCommand(cmd : String) : boolean
+}
+
+class PLCController {
+  --
+  + sendControlCommand(cmd : String) : void
+  + readMachineStatus() : String
+  # authenticateCommand(cmd : String) : boolean
+}
+
+class Sensor {
+  - sensorId : int
+  - type : String
+  - value : float
+  --
+  + readData() : float
+}
+
+class SensorNetwork {
+  + collectSensorData() : void
+}
+
+Machine "1" -- "1" PLCController
+Machine "1" o-- "*" Sensor
+SensorNetwork "1" o-- "*" Sensor
+}
+
+' =========================
+' AUTOMATION & EVENTS
+' =========================
+package "Automation & Events" {
+
+class AutomationRule {
+  - ruleId : int
+  - condition : String
+  - action : String
+  --
+  + evaluate() : boolean
+}
+
+class RuleEngine {
+  --
+  + executeRules() : void
+  # validateRule(rule : AutomationRule) : boolean
+}
+
+class EventDetector {
+  + detectAbnormalEvent() : boolean
+}
+
+RuleEngine "1" o-- "*" AutomationRule
+EventDetector --> RuleEngine
+}
+
+' =========================
+' ALERTS, LOGS & SIMULATION
+' =========================
+package "Alerts, Logs & Simulation" {
+
+class NotificationService {
+  + sendAlert(message : String) : void
+}
+
+class Log {
+  - logId : int
+  - timestamp : Date
+  - message : String
+}
+
+class LogManager {
+  --
+  + storeLog(log : Log) : void
+  + retrieveLogs() : List
+  - encryptLog(log : Log) : void
+}
+
+class SimulationEngine {
+  + runSimulation() : void
+}
+
+LogManager "1" o-- "*" Log
+}
+
+' =========================
+' CORE SYSTEM
+' =========================
+package "Core System" {
+
+class DigitalTwinSystem {
+  --
+  + processSensorData() : void
+  + controlMachines() : void
+  + triggerAutomation() : void
+  # authenticateUser(user : User) : boolean
+}
+}
+
+DigitalTwinSystem *-- FactoryFloorVisualization
+DigitalTwinSystem *-- RuleEngine
+DigitalTwinSystem *-- EventDetector
+DigitalTwinSystem *-- NotificationService
+DigitalTwinSystem *-- LogManager
+DigitalTwinSystem *-- SimulationEngine
+DigitalTwinSystem *-- Machine
+DigitalTwinSystem *-- SensorNetwork
+
+User --> DigitalTwinSystem
+
+@enduml
