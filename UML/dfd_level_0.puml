@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+skinparam roundcorner 15
+
+actor "User\n(Admin / Operator / Supervisor)" as User
+actor "Sensors" as Sensors
+actor "Machine / PLC" as Machine
+actor "Notification Service" as Notify
+
+rectangle "Factory Floor Visualization\n& Control System" as System
+
+database "User Data" as D1
+database "Logs" as D2
+database "Automation Rules" as D3
+
+User --> System : Login\nControl Input
+System --> User : Visualization,\nStatus,\nSimulation Result
+
+Sensors --> System : Sensor Data
+Machine --> System : \n\nMachine Status
+System --> Machine : Control Commands
+
+System --> Notify : Alerts\nNotifications
+
+System <--> D1 : Read / Write,\nUser Info
+System <--> D2 : Store Logs
+System <--> D3 : Read Rules
+
+@enduml
