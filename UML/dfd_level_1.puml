@@ -1,0 +1,61 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+' ==== External Entities ====
+actor "User\n(Admin / Supervisor / Operator)" as User
+actor "Sensors" as Sensors
+actor "Machines / PLC" as PLC
+actor "Notification Service" as Notify
+
+' ==== Core Processes ====
+rectangle "Authentication & Authorization" as Auth
+rectangle "Machine Data Acquisition" as MDA
+rectangle "Control & Command Processing" as CCP
+rectangle "Automation & Rule Engine" as ARE
+rectangle "Visualization & Monitoring" as VM
+rectangle "Alert & Notification Handling" as ANH
+rectangle "Logging & Analytics" as LA
+
+' ==== Data Stores ====
+database "User Data" as UserDB
+database "Automation Rules" as RulesDB
+database "Logs" as LogsDB
+
+' ==== User Flow ====
+User --> Auth : login credentials
+Auth --> UserDB : verify user
+UserDB --> Auth : auth result
+Auth --> User : access granted / denied
+
+VM --> User:Visualization, Metrics,\n Simulation results 
+
+User --> CCP : control commands
+
+User --> ARE : configure automation rules
+
+' ==== Machine Data Flow ====
+Sensors --> MDA : sensor readings
+MDA --> VM : real-time data
+MDA --> ARE : \nmachine status
+
+' ==== Automation Flow ====
+ARE <--> RulesDB : rule storage
+ARE --> CCP : automated actions
+
+' ==== Control Flow ====
+CCP --> PLC : Real Time operational data,\nReceive control signals
+
+' ==== Logging Flow ====
+MDA --> LA : machine logs
+CCP --> LA : control logs
+ARE --> LA : automation logs
+LA <--> LogsDB : store logs
+VM<-->LA
+
+' ==== Alert Flow ====
+ARE --> ANH :\n\n\n\nalert trigger
+ANH --> Notify : send alert
+Notify --> User : notification
+@enduml
