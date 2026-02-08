@@ -7,7 +7,7 @@ actor "Sensors" as Sensors
 actor "Machine / PLC" as Machine
 actor "Notification Service" as Notify
 
-rectangle "Factory Floor Visualization\n& Control System" as System
+rectangle "Digital Twin-Based Industrial Automation System" as System
 
 database "User Data" as D1
 database "Logs" as D2
