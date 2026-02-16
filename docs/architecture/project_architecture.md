@@ -4,7 +4,7 @@
 ## I. Selected Software Architecture Style  
 ### Microservices Architecture
 
-The Digital Twin–Based Industrial Automation System adopts a **Microservices Architecture**, where the system is decomposed into independently deployable services. Each service runs as a separate FastAPI application and communicates through REST APIs over HTTP.
+The Digital Twin–Based Industrial Automation System adopts a **Microservices Architecture**, where the system is decomposed into independently deployable services. 
 
 Each microservice:
 
@@ -266,6 +266,7 @@ flowchart TB
     AutoComp --> NotifyComp
     AutoComp --> LogComp
     SimComp --> AutoComp
+    EventComp --> NotifyComp
 ```
 
 ---
