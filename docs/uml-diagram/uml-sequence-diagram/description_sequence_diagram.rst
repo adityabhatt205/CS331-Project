@@ -120,5 +120,17 @@ The **Simulation component**:
 To execute accurate simulations, it may request real-time or historical system state data from the Automation component.  
 The simulation results are returned to Visualization for graphical presentation and operator decision support.
 
----
 
+Summary of Interaction Flow
+---------------------------
+
+- Users interact exclusively through the Visualization component.  
+- Visualization handles authentication via User Management.  
+- Automation coordinates real-time operations and system logic.  
+- Device Integration enables hardware communication.  
+- Event Detection identifies anomalies and faults.  
+- Notification manages alerting and escalation.  
+- Logging ensures auditability and historical traceability.  
+- Simulation supports predictive and analytical decision-making.
+
+This interaction model ensures secure, scalable, modular, and real-time operation of the Digital Twin–Based Industrial Automation System.
