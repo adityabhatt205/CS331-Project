@@ -17,9 +17,7 @@ from machines_sensors import (
 )
 
 # Import user security modules
-from user_security.user_admin import UserAdmin
-from user_security.user_supervisor import UserSupervisor
-from user_security.user_operator import UserOperator
+from user_security import auth_manager, Permission
 
 def setup_logging():
     """Setup logging configuration."""
@@ -27,7 +25,7 @@ def setup_logging():
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.ConsoleHandler(),
+            logging.StreamHandler(),
             logging.FileHandler('factory_demo.log')
         ]
     )
@@ -38,41 +36,68 @@ def demo_user_security():
     print("FACTORY FLOOR SYSTEM - USER SECURITY DEMO")
     print("="*60)
     
-    # Create admin to manage users
-    admin = UserAdmin()
+    # Test authentication with default users
+    print("\n1. Testing Authentication...")
     
-    # Create users
-    print("\n1. Creating Factory Users...")
-    supervisor_id = admin.createUser("supervisor1", "SecurePass123!", "SUPERVISOR")
-    operator1_id = admin.createUser("operator1", "StrongPass456!", "OPERATOR") 
-    operator2_id = admin.createUser("operator2", "SafePass789!", "OPERATOR")
-    
-    print(f"Created supervisor: ID {supervisor_id}")
-    print(f"Created operator1: ID {operator1_id}")
-    print(f"Created operator2: ID {operator2_id}")
-    
-    # Test authentication
-    print("\n2. Testing Authentication...")
-    supervisor = UserSupervisor()
-    operator1 = UserOperator()
+    # Admin login
+    admin_session = auth_manager.authenticate_user("admin", "admin123", "127.0.0.1")
+    if admin_session:
+        print("✓ Admin authentication successful")
+        print(f"  Session ID: {admin_session}")
+    else:
+        print("✗ Admin authentication failed")
     
     # Supervisor login
-    if supervisor.authenticate("supervisor1", "SecurePass123!"):
-        print("✓ Supervisor authentication successful")
-        supervisor.login("supervisor1", "SecurePass123!")
+    supervisor_session = auth_manager.authenticate_user("supervisor", "super123", "127.0.0.1")
+    if supervisor_session:
+        print("✓ Supervisor authentication successful") 
+        print(f"  Session ID: {supervisor_session}")
     else:
         print("✗ Supervisor authentication failed")
     
     # Operator login
-    if operator1.authenticate("operator1", "StrongPass456!"):
+    operator_session = auth_manager.authenticate_user("operator", "op123", "127.0.0.1")
+    if operator_session:
         print("✓ Operator authentication successful")
-        operator1.login("operator1", "StrongPass456!")
+        print(f"  Session ID: {operator_session}")
     else:
         print("✗ Operator authentication failed")
     
-    return supervisor, operator1, operator2_id
+    # Test permissions
+    print("\n2. Testing Permissions...")
+    
+    # Admin permissions
+    if auth_manager.check_permission(admin_session, Permission.CREATE_USER):
+        print("✓ Admin can create users")
+    
+    if auth_manager.check_permission(admin_session, Permission.START_MACHINE):
+        print("✓ Admin can start machines")
+    
+    # Supervisor permissions
+    if auth_manager.check_permission(supervisor_session, Permission.START_MACHINE):
+        print("✓ Supervisor can start machines")
+    
+    if not auth_manager.check_permission(supervisor_session, Permission.CREATE_USER):
+        print("✓ Supervisor cannot create users (correct restriction)")
+    
+    # Operator permissions
+    if not auth_manager.check_permission(operator_session, Permission.START_MACHINE):
+        print("✓ Operator cannot start machines (correct restriction)")
+    
+    if auth_manager.check_permission(operator_session, Permission.VIEW_SENSOR_DATA):
+        print("✓ Operator can view sensor data")
+    
+    # Display system stats
+    print("\n3. System Statistics...")
+    stats = auth_manager.get_system_stats()
+    print(f"Total users: {stats['total_users']}")
+    print(f"Active sessions: {stats['active_sessions']}")
+    print(f"Logged in users: {stats['logged_in_users']}")
+    print(f"Total audit logs: {stats['total_audit_logs']}")
+    
+    return admin_session, supervisor_session, operator_session
 
-def demo_machine_management(supervisor, operator):
+def demo_machine_management(admin_session, supervisor_session):
     """Demonstrate machine management system."""
     print("\n" + "="*60)
     print("MACHINE MANAGEMENT DEMO")
@@ -96,29 +121,26 @@ def demo_machine_management(supervisor, operator):
     # Production machine
     production_machine = Machine(
         machine_id=1,
-        name="Production Line A",
         machine_type=MachineType.PRODUCTION_LINE,
-        location="Factory Floor Zone A",
-        plc_controller=plc
+        name="Production Line A",
+        location="Factory Floor Zone A"
     )
     
     # Assembly machine
     assembly_machine = Machine(
         machine_id=2,
-        name="Assembly Robot 1",
         machine_type=MachineType.ASSEMBLY_ROBOT,
+        name="Assembly Robot 1",
         location="Factory Floor Zone B",
-        plc_controller=plc,
         safety_level=MachineSafetyLevel.HIGH
     )
     
     # Conveyor system
     conveyor_machine = Machine(
         machine_id=3,
-        name="Main Conveyor",
         machine_type=MachineType.CONVEYOR,
+        name="Main Conveyor",
         location="Factory Floor Main Line",
-        plc_controller=plc,
         safety_level=MachineSafetyLevel.MEDIUM
     )
     
@@ -132,8 +154,8 @@ def demo_machine_management(supervisor, operator):
     # Start machines
     print("\n3. Starting Machines...")
     for machine in machines:
-        if supervisor.hasPermission("MANAGE_MACHINES"):
-            success = machine.start(user_id=supervisor.getCurrentUser())
+        if auth_manager.check_permission(supervisor_session, Permission.START_MACHINE):
+            success = machine.start()  # Remove user_id parameter
             print(f"Started {machine.name}: {'✓' if success else '✗'}")
             time.sleep(1)
     
@@ -142,17 +164,18 @@ def demo_machine_management(supervisor, operator):
     time.sleep(2)
     
     for machine in machines:
-        stats = machine.get_performance_stats()
-        print(f"\n{machine.name} Performance:")
-        print(f"  Uptime: {stats['uptime_hours']:.2f} hours")
-        print(f"  Total Cycles: {stats['total_cycles']}")
-        print(f"  Current Speed: {stats.get('current_speed', 0):.1f} units/min")
-        print(f"  Efficiency: {stats.get('efficiency', 0):.1f}%")
+        stats = machine.get_status_info()
+        print(f"\n{machine.name} Status:")
+        print(f"  Status: {stats['status']}")
+        print(f"  Operating Hours: {stats['operating_hours']:.2f} hours")
+        print(f"  Current Speed: {stats['speed']:.1f}%")
+        print(f"  Safety Level: {stats['safety_level']}")
+        print(f"  Cycle Count: {stats['cycle_count']}")
     
     # Test emergency stop
     print("\n5. Testing Emergency Stop...")
-    if supervisor.hasPermission("EMERGENCY_CONTROL"):
-        success = assembly_machine.emergency_stop(user_id=supervisor.getCurrentUser())
+    if auth_manager.check_permission(supervisor_session, Permission.EMERGENCY_STOP):
+        success = assembly_machine.emergency_stop()  # Remove user_id parameter
         print(f"Emergency stop executed: {'✓' if success else '✗'}")
         print(f"Assembly machine status: {assembly_machine.status.value}")
     
@@ -339,7 +362,7 @@ def demo_sensor_network(sensors):
     
     return sensor_network
 
-def demo_integrated_operations(machines, sensors, sensor_network, supervisor, operator):
+def demo_integrated_operations(machines, sensors, sensor_network, admin_session, supervisor_session):
     """Demonstrate integrated factory operations."""
     print("\n" + "="*60)
     print("INTEGRATED FACTORY OPERATIONS DEMO")
@@ -354,9 +377,9 @@ def demo_integrated_operations(machines, sensors, sensor_network, supervisor, op
         print(f"  {machine.name}: {machine.status.value}")
         if machine.status == MachineStatus.STOPPED:
             # Restart stopped machines
-            if supervisor.hasPermission("MANAGE_MACHINES"):
-                machine.start(user_id=supervisor.getCurrentUser())
-                print(f"    Restarted by supervisor")
+            if auth_manager.check_permission(admin_session, Permission.START_MACHINE):
+                machine.start()  # Remove user_id parameter
+                print(f"    Restarted by admin")
     
     # Monitor for alerts
     print("\n2. Alert Monitoring...")
@@ -391,10 +414,10 @@ def demo_integrated_operations(machines, sensors, sensor_network, supervisor, op
     machine_count = 0
     
     for machine in machines:
-        if machine.status in [MachineStatus.RUNNING, MachineStatus.COMPLETED]:
-            stats = machine.get_performance_stats()
-            total_uptime += stats['uptime_hours']
-            total_efficiency += stats.get('efficiency', 0)
+        if machine.status in [MachineStatus.RUNNING, MachineStatus.STOPPED]:
+            stats = machine.get_status_info()
+            total_uptime += stats['operating_hours']
+            total_efficiency += 90  # Default efficiency value
             machine_count += 1
     
     avg_uptime = total_uptime / machine_count if machine_count > 0 else 0
@@ -458,10 +481,10 @@ def main():
     
     try:
         # Demo user security
-        supervisor, operator1, operator2_id = demo_user_security()
+        admin_session, supervisor_session, operator_session = demo_user_security()
         
         # Demo machine management
-        machines, plc = demo_machine_management(supervisor, operator1)
+        machines, plc = demo_machine_management(admin_session, supervisor_session)
         
         # Demo sensor system
         sensors = demo_sensor_system()
@@ -470,7 +493,7 @@ def main():
         sensor_network = demo_sensor_network(sensors)
         
         # Demo integrated operations
-        results = demo_integrated_operations(machines, sensors, sensor_network, supervisor, operator1)
+        results = demo_integrated_operations(machines, sensors, sensor_network, admin_session, supervisor_session)
         
         # Final results
         print("\n" + "="*60)

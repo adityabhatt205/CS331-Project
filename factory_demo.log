@@ -1,0 +1,39 @@
+2026-03-01 21:51:55,728 - user_security.session_manager - INFO - Created session session_1_1_185c38fe3fc6023298e602c85ec53d8c for user admin
+2026-03-01 21:51:55,750 - user_security.user.admin - INFO - User admin authenticated successfully
+2026-03-01 21:51:55,750 - user_security.auth_manager - INFO - User admin authenticated successfully from 127.0.0.1
+2026-03-01 21:51:55,792 - user_security.session_manager - INFO - Created session session_2_2_7b03a431649e00d8a0f08a6957a25226 for user supervisor
+2026-03-01 21:51:55,814 - user_security.user.supervisor - INFO - User supervisor authenticated successfully
+2026-03-01 21:51:55,814 - user_security.auth_manager - INFO - User supervisor authenticated successfully from 127.0.0.1
+2026-03-01 21:51:55,849 - user_security.session_manager - INFO - Created session session_3_3_6fde7f1528a94c5cdfcd55d0bad52e10 for user operator
+2026-03-01 21:51:55,870 - user_security.user.operator - INFO - User operator authenticated successfully
+2026-03-01 21:51:55,870 - user_security.auth_manager - INFO - User operator authenticated successfully from 127.0.0.1
+2026-03-01 21:51:55,911 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:51:55,912 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:51:55,913 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:51:55,913 - PLC_1 - INFO - PLC Controller Main Factory PLC initialized with protocol SIMULATION
+2026-03-01 21:51:55,914 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:51:55,914 - PLC_1 - INFO - Communication threads started
+2026-03-01 21:51:55,914 - PLC_1 - INFO - Connected to PLC in simulation mode
+2026-03-01 21:51:55,914 - Machine_1 - INFO - [MACHINE_CREATED] Machine Production Line A initialized
+2026-03-01 21:51:55,914 - Machine_2 - INFO - [MACHINE_CREATED] Machine Assembly Robot 1 initialized
+2026-03-01 21:51:55,914 - Machine_3 - INFO - [MACHINE_CREATED] Machine Main Conveyor initialized
+2026-03-01 21:51:55,916 - Machine_1 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:51:56,929 - Machine_2 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:51:57,916 - Machine_1 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:51:57,944 - Machine_3 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:51:58,930 - Machine_2 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:51:59,945 - Machine_3 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:52:00,914 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:52:00,960 - Machine_2 - CRITICAL - [EMERGENCY_STOP] Emergency stop activated
+2026-03-01 21:52:00,961 - Sensor_101 - INFO - Sensor Production Area Temp 1 (TEMPERATURE) initialized
+2026-03-01 21:52:00,961 - Sensor_102 - INFO - Sensor Production Area Temp 2 (TEMPERATURE) initialized
+2026-03-01 21:52:00,961 - Sensor_201 - INFO - Sensor Hydraulic Pressure (PRESSURE) initialized
+2026-03-01 21:52:00,961 - Sensor_301 - INFO - Sensor Motor Vibration (VIBRATION) initialized
+2026-03-01 21:52:00,961 - Sensor_101 - INFO - Thresholds updated: warn(15.0-35.0), critical(10.0-40.0)
+2026-03-01 21:52:00,962 - Sensor_102 - INFO - Thresholds updated: warn(15.0-35.0), critical(10.0-40.0)
+2026-03-01 21:52:00,962 - Sensor_201 - INFO - Thresholds updated: warn(90.0-110.0), critical(80.0-120.0)
+2026-03-01 21:52:00,962 - Sensor_301 - INFO - Thresholds updated: warn(1.0-5.0), critical(0.5-8.0)
+2026-03-01 21:52:00,962 - Sensor_101 - INFO - Sensor monitoring started
+2026-03-01 21:52:00,963 - Sensor_102 - INFO - Sensor monitoring started
+2026-03-01 21:52:00,963 - Sensor_201 - INFO - Sensor monitoring started
+2026-03-01 21:52:00,964 - Sensor_301 - INFO - Sensor monitoring started
