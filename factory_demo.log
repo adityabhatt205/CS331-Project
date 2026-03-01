@@ -1,0 +1,179 @@
+2026-03-01 21:51:55,728 - user_security.session_manager - INFO - Created session session_1_1_185c38fe3fc6023298e602c85ec53d8c for user admin
+2026-03-01 21:51:55,750 - user_security.user.admin - INFO - User admin authenticated successfully
+2026-03-01 21:51:55,750 - user_security.auth_manager - INFO - User admin authenticated successfully from 127.0.0.1
+2026-03-01 21:51:55,792 - user_security.session_manager - INFO - Created session session_2_2_7b03a431649e00d8a0f08a6957a25226 for user supervisor
+2026-03-01 21:51:55,814 - user_security.user.supervisor - INFO - User supervisor authenticated successfully
+2026-03-01 21:51:55,814 - user_security.auth_manager - INFO - User supervisor authenticated successfully from 127.0.0.1
+2026-03-01 21:51:55,849 - user_security.session_manager - INFO - Created session session_3_3_6fde7f1528a94c5cdfcd55d0bad52e10 for user operator
+2026-03-01 21:51:55,870 - user_security.user.operator - INFO - User operator authenticated successfully
+2026-03-01 21:51:55,870 - user_security.auth_manager - INFO - User operator authenticated successfully from 127.0.0.1
+2026-03-01 21:51:55,911 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:51:55,912 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:51:55,913 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:51:55,913 - PLC_1 - INFO - PLC Controller Main Factory PLC initialized with protocol SIMULATION
+2026-03-01 21:51:55,914 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:51:55,914 - PLC_1 - INFO - Communication threads started
+2026-03-01 21:51:55,914 - PLC_1 - INFO - Connected to PLC in simulation mode
+2026-03-01 21:51:55,914 - Machine_1 - INFO - [MACHINE_CREATED] Machine Production Line A initialized
+2026-03-01 21:51:55,914 - Machine_2 - INFO - [MACHINE_CREATED] Machine Assembly Robot 1 initialized
+2026-03-01 21:51:55,914 - Machine_3 - INFO - [MACHINE_CREATED] Machine Main Conveyor initialized
+2026-03-01 21:51:55,916 - Machine_1 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:51:56,929 - Machine_2 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:51:57,916 - Machine_1 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:51:57,944 - Machine_3 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:51:58,930 - Machine_2 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:51:59,945 - Machine_3 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:52:00,914 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:52:00,960 - Machine_2 - CRITICAL - [EMERGENCY_STOP] Emergency stop activated
+2026-03-01 21:52:00,961 - Sensor_101 - INFO - Sensor Production Area Temp 1 (TEMPERATURE) initialized
+2026-03-01 21:52:00,961 - Sensor_102 - INFO - Sensor Production Area Temp 2 (TEMPERATURE) initialized
+2026-03-01 21:52:00,961 - Sensor_201 - INFO - Sensor Hydraulic Pressure (PRESSURE) initialized
+2026-03-01 21:52:00,961 - Sensor_301 - INFO - Sensor Motor Vibration (VIBRATION) initialized
+2026-03-01 21:52:00,961 - Sensor_101 - INFO - Thresholds updated: warn(15.0-35.0), critical(10.0-40.0)
+2026-03-01 21:52:00,962 - Sensor_102 - INFO - Thresholds updated: warn(15.0-35.0), critical(10.0-40.0)
+2026-03-01 21:52:00,962 - Sensor_201 - INFO - Thresholds updated: warn(90.0-110.0), critical(80.0-120.0)
+2026-03-01 21:52:00,962 - Sensor_301 - INFO - Thresholds updated: warn(1.0-5.0), critical(0.5-8.0)
+2026-03-01 21:52:00,962 - Sensor_101 - INFO - Sensor monitoring started
+2026-03-01 21:52:00,963 - Sensor_102 - INFO - Sensor monitoring started
+2026-03-01 21:52:00,963 - Sensor_201 - INFO - Sensor monitoring started
+2026-03-01 21:52:00,964 - Sensor_301 - INFO - Sensor monitoring started
+2026-03-01 21:52:02,963 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 14.81 below warning threshold 15.00
+2026-03-01 21:52:03,966 - SensorNetwork_1 - INFO - Sensor Network 'Factory Floor Sensor Network' initialized
+2026-03-01 21:52:03,966 - SensorNetwork_1 - INFO - Added sensor 101 (Production Area Temp 1) to network
+2026-03-01 21:52:03,966 - SensorNetwork_1 - INFO - Added sensor 102 (Production Area Temp 2) to network
+2026-03-01 21:52:03,966 - SensorNetwork_1 - INFO - Added sensor 201 (Hydraulic Pressure) to network
+2026-03-01 21:52:03,967 - SensorNetwork_1 - INFO - Added sensor 301 (Motor Vibration) to network
+2026-03-01 21:52:03,967 - SensorNetwork_1 - INFO - Created sensor group 'Temperature Monitoring' with 2 sensors
+2026-03-01 21:52:03,967 - SensorNetwork_1 - INFO - Created sensor group 'Machine Health' with 2 sensors
+2026-03-01 21:52:03,967 - SensorNetwork_1 - WARNING - Network alert: Sensor 101 not responding
+2026-03-01 21:52:03,968 - SensorNetwork_1 - WARNING - Network alert: Sensor 102 not responding
+2026-03-01 21:52:03,968 - SensorNetwork_1 - WARNING - Network alert: Sensor 201 not responding
+2026-03-01 21:52:03,968 - SensorNetwork_1 - WARNING - Network alert: Sensor 301 not responding
+2026-03-01 21:52:03,969 - SensorNetwork_1 - INFO - Sensor network started
+2026-03-01 21:52:04,964 - SensorNetwork_1 - WARNING - Network alert: Sensor value 13.04 below warning threshold 15.00
+2026-03-01 21:52:04,964 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 13.04 below warning threshold 15.00
+2026-03-01 21:52:05,915 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:52:05,965 - SensorNetwork_1 - WARNING - Network alert: Sensor value 13.35 below warning threshold 15.00
+2026-03-01 21:52:05,965 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 13.35 below warning threshold 15.00
+2026-03-01 21:52:09,965 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.74
+2026-03-01 21:52:09,966 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.74
+2026-03-01 21:52:09,966 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.70
+2026-03-01 21:52:09,966 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.70
+2026-03-01 21:52:10,915 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:52:10,966 - SensorNetwork_1 - WARNING - Network alert: Sensor value 9.44 below critical threshold 10.00
+2026-03-01 21:52:10,966 - Sensor_102 - ERROR - [CRITICAL_LOW] Sensor value 9.44 below critical threshold 10.00
+2026-03-01 21:52:10,966 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.75
+2026-03-01 21:52:10,967 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.75
+2026-03-01 21:52:10,967 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.69
+2026-03-01 21:52:10,967 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.79
+2026-03-01 21:52:10,968 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.69
+2026-03-01 21:52:10,968 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.79
+2026-03-01 21:52:11,967 - SensorNetwork_1 - WARNING - Network alert: Sensor value 12.59 below warning threshold 15.00
+2026-03-01 21:52:11,967 - Sensor_102 - WARNING - [WARNING_LOW] Sensor value 12.59 below warning threshold 15.00
+2026-03-01 21:52:11,967 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.68
+2026-03-01 21:52:11,967 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.68
+2026-03-01 21:52:11,968 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.71
+2026-03-01 21:52:11,969 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.79
+2026-03-01 21:52:11,969 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.71
+2026-03-01 21:52:11,969 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.79
+2026-03-01 21:52:12,968 - SensorNetwork_1 - WARNING - Network alert: Sensor value 11.12 below warning threshold 15.00
+2026-03-01 21:52:12,968 - Sensor_102 - WARNING - [WARNING_LOW] Sensor value 11.12 below warning threshold 15.00
+2026-03-01 21:52:12,968 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.66
+2026-03-01 21:52:12,968 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.66
+2026-03-01 21:52:12,969 - SensorNetwork_1 - WARNING - Network alert: Sensor value 14.25 below warning threshold 15.00
+2026-03-01 21:52:12,970 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.76
+2026-03-01 21:52:12,970 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 14.25 below warning threshold 15.00
+2026-03-01 21:52:12,971 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.71
+2026-03-01 21:52:12,970 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.76
+2026-03-01 21:52:12,971 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.71
+2026-03-01 21:52:13,968 - SensorNetwork_1 - WARNING - Network alert: Sensor value 9.85 below critical threshold 10.00
+2026-03-01 21:52:13,969 - SensorNetwork_1 - WARNING - Network alert: Multiple SENSOR_OFFLINE alerts detected (4 in last 5 minutes)
+2026-03-01 21:52:13,969 - Sensor_102 - ERROR - [CRITICAL_LOW] Sensor value 9.85 below critical threshold 10.00
+2026-03-01 21:52:13,969 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.63
+2026-03-01 21:52:13,970 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.63
+2026-03-01 21:52:13,969 - SensorNetwork_1 - WARNING - Network alert: Multiple WARNING_LOW alerts detected (5 in last 5 minutes)
+2026-03-01 21:52:13,970 - SensorNetwork_1 - WARNING - Network alert: Multiple QUALITY_LOW alerts detected (11 in last 5 minutes)
+2026-03-01 21:52:13,971 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.77
+2026-03-01 21:52:13,972 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.69
+2026-03-01 21:52:13,972 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.77
+2026-03-01 21:52:13,972 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.69
+2026-03-01 21:52:14,970 - SensorNetwork_1 - WARNING - Network alert: Sensor value 8.72 below critical threshold 10.00
+2026-03-01 21:52:14,970 - Sensor_102 - ERROR - [CRITICAL_LOW] Sensor value 8.72 below critical threshold 10.00
+2026-03-01 21:52:14,970 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.59
+2026-03-01 21:52:14,970 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.59
+2026-03-01 21:52:14,973 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.80
+2026-03-01 21:52:14,973 - SensorNetwork_1 - WARNING - Network alert: Sensor value 13.58 below warning threshold 15.00
+2026-03-01 21:52:14,973 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.80
+2026-03-01 21:52:14,973 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 13.58 below warning threshold 15.00
+2026-03-01 21:52:14,975 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.67
+2026-03-01 21:52:14,975 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.67
+2026-03-01 21:52:15,916 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:52:15,971 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.56
+2026-03-01 21:52:15,971 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.56
+2026-03-01 21:52:15,974 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.75
+2026-03-01 21:52:15,974 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.75
+2026-03-01 21:52:15,975 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.67
+2026-03-01 21:52:15,976 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.67
+2026-03-01 21:52:16,971 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.53
+2026-03-01 21:52:16,972 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.53
+2026-03-01 21:52:16,974 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.74
+2026-03-01 21:52:16,975 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.74
+2026-03-01 21:52:16,976 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.71
+2026-03-01 21:52:16,976 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.71
+2026-03-01 21:52:17,972 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.53
+2026-03-01 21:52:17,972 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.53
+2026-03-01 21:52:17,975 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.73
+2026-03-01 21:52:17,975 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.73
+2026-03-01 21:52:17,977 - SensorNetwork_1 - WARNING - Network alert: Sensor value 14.98 below warning threshold 15.00
+2026-03-01 21:52:17,977 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 14.98 below warning threshold 15.00
+2026-03-01 21:52:17,977 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.72
+2026-03-01 21:52:17,977 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.72
+2026-03-01 21:52:18,973 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.53
+2026-03-01 21:52:18,973 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.53
+2026-03-01 21:52:18,975 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.72
+2026-03-01 21:52:18,976 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.72
+2026-03-01 21:52:18,977 - SensorNetwork_1 - WARNING - Network alert: Sensor value 13.16 below warning threshold 15.00
+2026-03-01 21:52:18,978 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 13.16 below warning threshold 15.00
+2026-03-01 21:52:18,978 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.70
+2026-03-01 21:52:18,978 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.70
+2026-03-01 21:52:19,973 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.53
+2026-03-01 21:52:19,973 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.53
+2026-03-01 21:52:19,976 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.71
+2026-03-01 21:52:19,976 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.71
+2026-03-01 21:52:19,978 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.68
+2026-03-01 21:52:19,978 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.68
+2026-03-01 21:52:20,916 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:52:20,974 - SensorNetwork_1 - WARNING - Network alert: Sensor value 11.01 below warning threshold 15.00
+2026-03-01 21:52:20,974 - Sensor_102 - WARNING - [WARNING_LOW] Sensor value 11.01 below warning threshold 15.00
+2026-03-01 21:52:20,974 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.55
+2026-03-01 21:52:20,974 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.55
+2026-03-01 21:52:20,976 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.73
+2026-03-01 21:52:20,977 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.73
+2026-03-01 21:52:20,979 - SensorNetwork_1 - WARNING - Network alert: Sensor value 11.72 below warning threshold 15.00
+2026-03-01 21:52:20,979 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 11.72 below warning threshold 15.00
+2026-03-01 21:52:20,979 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.65
+2026-03-01 21:52:20,979 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.65
+2026-03-01 21:52:21,975 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.56
+2026-03-01 21:52:21,975 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.56
+2026-03-01 21:52:21,977 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.73
+2026-03-01 21:52:21,977 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.73
+2026-03-01 21:52:21,980 - Sensor_101 - INFO - Sensor monitoring stopped
+2026-03-01 21:52:22,975 - Sensor_102 - INFO - Sensor monitoring stopped
+2026-03-01 21:52:22,978 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.75
+2026-03-01 21:52:22,978 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.75
+2026-03-01 21:52:23,970 - Sensor_201 - INFO - Sensor monitoring stopped
+2026-03-01 21:52:23,970 - SensorNetwork_1 - WARNING - Network alert: Multiple SENSOR_OFFLINE alerts detected (4 in last 5 minutes)
+2026-03-01 21:52:23,971 - SensorNetwork_1 - WARNING - Network alert: Multiple WARNING_LOW alerts detected (10 in last 5 minutes)
+2026-03-01 21:52:23,971 - SensorNetwork_1 - WARNING - Network alert: Multiple QUALITY_LOW alerts detected (38 in last 5 minutes)
+2026-03-01 21:52:23,971 - SensorNetwork_1 - WARNING - Network alert: Multiple CRITICAL_LOW alerts detected (3 in last 5 minutes)
+2026-03-01 21:52:23,971 - SensorNetwork_1 - WARNING - Network alert: Multiple COMMUNICATION_FAILURE alerts detected (3 in last 5 minutes)
+2026-03-01 21:52:23,978 - Sensor_301 - INFO - Sensor monitoring stopped
+2026-03-01 21:52:23,978 - Sensor_101 - INFO - Sensor monitoring stopped
+2026-03-01 21:52:23,978 - Sensor_102 - INFO - Sensor monitoring stopped
+2026-03-01 21:52:23,979 - Sensor_201 - INFO - Sensor monitoring stopped
+2026-03-01 21:52:23,979 - Sensor_301 - INFO - Sensor monitoring stopped
+2026-03-01 21:52:25,917 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:52:26,979 - SensorNetwork_1 - INFO - Sensor network stopped
+2026-03-01 21:52:26,979 - Machine_1 - INFO - [MACHINE_STOPPING] Stopping machine (controlled)
+2026-03-01 21:52:26,980 - Machine_2 - INFO - [STOP_INFO] Machine already in emergency stop
+2026-03-01 21:52:26,980 - Machine_3 - INFO - [MACHINE_STOPPING] Stopping machine (controlled)

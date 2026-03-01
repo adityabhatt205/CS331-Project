@@ -1,0 +1,328 @@
+2026-03-01 21:42:34,132 - user_security.session_manager - INFO - Created session session_1_1_bea6517406f475213998338646a5b076 for user admin
+2026-03-01 21:42:34,157 - user_security.user.admin - INFO - User admin authenticated successfully
+2026-03-01 21:42:34,157 - user_security.auth_manager - INFO - User admin authenticated successfully from 127.0.0.1
+2026-03-01 21:42:34,214 - user_security.session_manager - INFO - Created session session_2_2_e35ca8b0b3391bfd41bc0299ae12db7a for user supervisor
+2026-03-01 21:42:34,235 - user_security.user.supervisor - INFO - User supervisor authenticated successfully
+2026-03-01 21:42:34,236 - user_security.auth_manager - INFO - User supervisor authenticated successfully from 127.0.0.1
+2026-03-01 21:42:34,277 - user_security.session_manager - INFO - Created session session_3_3_8dc68c25b06a8e926102b3c093dfab3c for user operator
+2026-03-01 21:42:34,300 - user_security.user.operator - INFO - User operator authenticated successfully
+2026-03-01 21:42:34,300 - user_security.auth_manager - INFO - User operator authenticated successfully from 127.0.0.1
+2026-03-01 21:42:34,345 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:42:34,346 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:42:34,347 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:43:30,946 - user_security.session_manager - INFO - Invalidated session session_1_1_bea6517406f475213998338646a5b076
+2026-03-01 21:43:30,960 - user_security.session_manager - INFO - Created session session_1_1_1f06cc172fbffacc0135096f970b8d36 for user admin
+2026-03-01 21:43:30,982 - user_security.user.admin - INFO - User admin authenticated successfully
+2026-03-01 21:43:30,982 - user_security.auth_manager - INFO - User admin authenticated successfully from 127.0.0.1
+2026-03-01 21:43:31,032 - user_security.session_manager - INFO - Invalidated session session_2_2_e35ca8b0b3391bfd41bc0299ae12db7a
+2026-03-01 21:43:31,043 - user_security.session_manager - INFO - Created session session_2_2_ae30a688bd88c4340cdc2da8c4910d2f for user supervisor
+2026-03-01 21:43:31,065 - user_security.user.supervisor - INFO - User supervisor authenticated successfully
+2026-03-01 21:43:31,065 - user_security.auth_manager - INFO - User supervisor authenticated successfully from 127.0.0.1
+2026-03-01 21:43:31,099 - user_security.session_manager - INFO - Invalidated session session_3_3_8dc68c25b06a8e926102b3c093dfab3c
+2026-03-01 21:43:31,110 - user_security.session_manager - INFO - Created session session_3_3_9b4f72e0415c5cd0e909358cf8b2bc07 for user operator
+2026-03-01 21:43:31,132 - user_security.user.operator - INFO - User operator authenticated successfully
+2026-03-01 21:43:31,132 - user_security.auth_manager - INFO - User operator authenticated successfully from 127.0.0.1
+2026-03-01 21:43:31,172 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:43:31,172 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:43:31,174 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:43:31,174 - PLC_1 - INFO - PLC Controller Main Factory PLC initialized with protocol SIMULATION
+2026-03-01 21:43:31,174 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:43:31,174 - PLC_1 - INFO - Communication threads started
+2026-03-01 21:43:31,175 - PLC_1 - INFO - Connected to PLC in simulation mode
+2026-03-01 21:43:31,175 - Machine_1 - INFO - [MACHINE_CREATED] Machine Production Line A initialized
+2026-03-01 21:43:31,175 - Machine_2 - INFO - [MACHINE_CREATED] Machine Assembly Robot 1 initialized
+2026-03-01 21:43:31,175 - Machine_3 - INFO - [MACHINE_CREATED] Machine Main Conveyor initialized
+2026-03-01 21:45:12,131 - user_security.session_manager - INFO - Invalidated session session_1_1_1f06cc172fbffacc0135096f970b8d36
+2026-03-01 21:45:12,143 - user_security.session_manager - INFO - Created session session_1_1_8da6cc0ef44bf69f62e0ec9b3c3c5efe for user admin
+2026-03-01 21:45:12,163 - user_security.user.admin - INFO - User admin authenticated successfully
+2026-03-01 21:45:12,163 - user_security.auth_manager - INFO - User admin authenticated successfully from 127.0.0.1
+2026-03-01 21:45:12,196 - user_security.session_manager - INFO - Invalidated session session_2_2_ae30a688bd88c4340cdc2da8c4910d2f
+2026-03-01 21:45:12,207 - user_security.session_manager - INFO - Created session session_2_2_dee834df2777584e8625c90390076c8c for user supervisor
+2026-03-01 21:45:12,228 - user_security.user.supervisor - INFO - User supervisor authenticated successfully
+2026-03-01 21:45:12,228 - user_security.auth_manager - INFO - User supervisor authenticated successfully from 127.0.0.1
+2026-03-01 21:45:12,262 - user_security.session_manager - INFO - Invalidated session session_3_3_9b4f72e0415c5cd0e909358cf8b2bc07
+2026-03-01 21:45:12,274 - user_security.session_manager - INFO - Created session session_3_3_eb8d5f1fa2b134c83b36d687dd9df688 for user operator
+2026-03-01 21:45:12,294 - user_security.user.operator - INFO - User operator authenticated successfully
+2026-03-01 21:45:12,295 - user_security.auth_manager - INFO - User operator authenticated successfully from 127.0.0.1
+2026-03-01 21:45:12,337 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:45:12,337 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:45:12,338 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:45:12,338 - PLC_1 - INFO - PLC Controller Main Factory PLC initialized with protocol SIMULATION
+2026-03-01 21:45:12,339 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:45:12,339 - PLC_1 - INFO - Communication threads started
+2026-03-01 21:45:12,339 - PLC_1 - INFO - Connected to PLC in simulation mode
+2026-03-01 21:45:12,339 - Machine_1 - INFO - [MACHINE_CREATED] Machine Production Line A initialized
+2026-03-01 21:45:12,339 - Machine_2 - INFO - [MACHINE_CREATED] Machine Assembly Robot 1 initialized
+2026-03-01 21:45:12,339 - Machine_3 - INFO - [MACHINE_CREATED] Machine Main Conveyor initialized
+2026-03-01 21:45:12,341 - Machine_1 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:45:13,356 - Machine_2 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:45:14,342 - Machine_1 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:45:14,372 - Machine_3 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:45:15,357 - Machine_2 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:45:16,373 - Machine_3 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:45:17,339 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:45:52,787 - user_security.session_manager - INFO - Invalidated session session_1_1_8da6cc0ef44bf69f62e0ec9b3c3c5efe
+2026-03-01 21:45:52,799 - user_security.session_manager - INFO - Created session session_1_1_0ab2e9d187f3f9f0a226a7a06ba1ec79 for user admin
+2026-03-01 21:45:52,820 - user_security.user.admin - INFO - User admin authenticated successfully
+2026-03-01 21:45:52,820 - user_security.auth_manager - INFO - User admin authenticated successfully from 127.0.0.1
+2026-03-01 21:45:52,870 - user_security.session_manager - INFO - Invalidated session session_2_2_dee834df2777584e8625c90390076c8c
+2026-03-01 21:45:52,881 - user_security.session_manager - INFO - Created session session_2_2_f36e7a46c2624d42e2cfc2a7f9af30fa for user supervisor
+2026-03-01 21:45:52,903 - user_security.user.supervisor - INFO - User supervisor authenticated successfully
+2026-03-01 21:45:52,903 - user_security.auth_manager - INFO - User supervisor authenticated successfully from 127.0.0.1
+2026-03-01 21:45:52,936 - user_security.session_manager - INFO - Invalidated session session_3_3_eb8d5f1fa2b134c83b36d687dd9df688
+2026-03-01 21:45:52,949 - user_security.session_manager - INFO - Created session session_3_3_9d0a506fa25614795d65edc75577aa50 for user operator
+2026-03-01 21:45:52,969 - user_security.user.operator - INFO - User operator authenticated successfully
+2026-03-01 21:45:52,970 - user_security.auth_manager - INFO - User operator authenticated successfully from 127.0.0.1
+2026-03-01 21:45:53,020 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:45:53,020 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:45:53,021 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:45:53,021 - PLC_1 - INFO - PLC Controller Main Factory PLC initialized with protocol SIMULATION
+2026-03-01 21:45:53,022 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:45:53,022 - PLC_1 - INFO - Communication threads started
+2026-03-01 21:45:53,022 - PLC_1 - INFO - Connected to PLC in simulation mode
+2026-03-01 21:45:53,022 - Machine_1 - INFO - [MACHINE_CREATED] Machine Production Line A initialized
+2026-03-01 21:45:53,022 - Machine_2 - INFO - [MACHINE_CREATED] Machine Assembly Robot 1 initialized
+2026-03-01 21:45:53,022 - Machine_3 - INFO - [MACHINE_CREATED] Machine Main Conveyor initialized
+2026-03-01 21:45:53,034 - Machine_1 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:45:54,054 - Machine_2 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:45:55,034 - Machine_1 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:45:55,071 - Machine_3 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:45:56,055 - Machine_2 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:45:57,072 - Machine_3 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:45:58,022 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:46:39,146 - user_security.session_manager - INFO - Invalidated session session_1_1_0ab2e9d187f3f9f0a226a7a06ba1ec79
+2026-03-01 21:46:39,156 - user_security.session_manager - INFO - Created session session_1_1_bf9fcb95c809326e4e8eac91d7bec183 for user admin
+2026-03-01 21:46:39,179 - user_security.user.admin - INFO - User admin authenticated successfully
+2026-03-01 21:46:39,179 - user_security.auth_manager - INFO - User admin authenticated successfully from 127.0.0.1
+2026-03-01 21:46:39,229 - user_security.session_manager - INFO - Invalidated session session_2_2_f36e7a46c2624d42e2cfc2a7f9af30fa
+2026-03-01 21:46:39,241 - user_security.session_manager - INFO - Created session session_2_2_ecf310ad230b56833a601368e0dd7baa for user supervisor
+2026-03-01 21:46:39,261 - user_security.user.supervisor - INFO - User supervisor authenticated successfully
+2026-03-01 21:46:39,261 - user_security.auth_manager - INFO - User supervisor authenticated successfully from 127.0.0.1
+2026-03-01 21:46:39,295 - user_security.session_manager - INFO - Invalidated session session_3_3_9d0a506fa25614795d65edc75577aa50
+2026-03-01 21:46:39,305 - user_security.session_manager - INFO - Created session session_3_3_9a630ce135214b6db9857bf2c7ff429b for user operator
+2026-03-01 21:46:39,326 - user_security.user.operator - INFO - User operator authenticated successfully
+2026-03-01 21:46:39,326 - user_security.auth_manager - INFO - User operator authenticated successfully from 127.0.0.1
+2026-03-01 21:46:39,366 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:46:39,367 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:46:39,367 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:46:39,367 - PLC_1 - INFO - PLC Controller Main Factory PLC initialized with protocol SIMULATION
+2026-03-01 21:46:39,368 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:46:39,368 - PLC_1 - INFO - Communication threads started
+2026-03-01 21:46:39,368 - PLC_1 - INFO - Connected to PLC in simulation mode
+2026-03-01 21:46:39,368 - Machine_1 - INFO - [MACHINE_CREATED] Machine Production Line A initialized
+2026-03-01 21:46:39,368 - Machine_2 - INFO - [MACHINE_CREATED] Machine Assembly Robot 1 initialized
+2026-03-01 21:46:39,369 - Machine_3 - INFO - [MACHINE_CREATED] Machine Main Conveyor initialized
+2026-03-01 21:46:39,370 - Machine_1 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:46:40,387 - Machine_2 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:46:41,371 - Machine_1 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:46:41,404 - Machine_3 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:46:42,388 - Machine_2 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:46:43,404 - Machine_3 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:46:44,368 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:46:44,420 - Machine_2 - CRITICAL - [EMERGENCY_STOP] Emergency stop activated
+2026-03-01 21:46:44,420 - Sensor_101 - INFO - Sensor Production Area Temp 1 (TEMPERATURE) initialized
+2026-03-01 21:46:44,420 - Sensor_102 - INFO - Sensor Production Area Temp 2 (TEMPERATURE) initialized
+2026-03-01 21:46:44,421 - Sensor_201 - INFO - Sensor Hydraulic Pressure (PRESSURE) initialized
+2026-03-01 21:46:44,421 - Sensor_301 - INFO - Sensor Motor Vibration (VIBRATION) initialized
+2026-03-01 21:46:44,421 - Sensor_101 - INFO - Thresholds updated: warn(15.0-35.0), critical(10.0-40.0)
+2026-03-01 21:46:44,421 - Sensor_102 - INFO - Thresholds updated: warn(15.0-35.0), critical(10.0-40.0)
+2026-03-01 21:46:44,421 - Sensor_201 - INFO - Thresholds updated: warn(90.0-110.0), critical(80.0-120.0)
+2026-03-01 21:46:44,421 - Sensor_301 - INFO - Thresholds updated: warn(1.0-5.0), critical(0.5-8.0)
+2026-03-01 21:46:44,422 - Sensor_101 - INFO - Sensor monitoring started
+2026-03-01 21:46:44,422 - Sensor_102 - INFO - Sensor monitoring started
+2026-03-01 21:46:44,423 - Sensor_201 - INFO - Sensor monitoring started
+2026-03-01 21:46:44,423 - Sensor_301 - INFO - Sensor monitoring started
+2026-03-01 21:46:46,422 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 13.40 below warning threshold 15.00
+2026-03-01 21:46:47,424 - SensorNetwork_1 - INFO - Sensor Network 'Factory Floor Sensor Network' initialized
+2026-03-01 21:46:47,425 - SensorNetwork_1 - INFO - Added sensor 101 (Production Area Temp 1) to network
+2026-03-01 21:46:47,425 - SensorNetwork_1 - INFO - Added sensor 102 (Production Area Temp 2) to network
+2026-03-01 21:46:47,425 - SensorNetwork_1 - INFO - Added sensor 201 (Hydraulic Pressure) to network
+2026-03-01 21:46:47,425 - SensorNetwork_1 - INFO - Added sensor 301 (Motor Vibration) to network
+2026-03-01 21:46:47,425 - SensorNetwork_1 - INFO - Created sensor group 'Temperature Monitoring' with 2 sensors
+2026-03-01 21:46:47,425 - SensorNetwork_1 - INFO - Created sensor group 'Machine Health' with 2 sensors
+2026-03-01 21:46:47,426 - SensorNetwork_1 - WARNING - Network alert: Sensor 101 not responding
+2026-03-01 21:46:47,426 - SensorNetwork_1 - WARNING - Network alert: Sensor 102 not responding
+2026-03-01 21:46:47,426 - SensorNetwork_1 - WARNING - Network alert: Sensor 201 not responding
+2026-03-01 21:46:47,426 - SensorNetwork_1 - WARNING - Network alert: Sensor 301 not responding
+2026-03-01 21:46:47,427 - SensorNetwork_1 - WARNING - Network alert: Multiple SENSOR_OFFLINE alerts detected (4 in last 5 minutes)
+2026-03-01 21:46:47,427 - SensorNetwork_1 - INFO - Sensor network started
+2026-03-01 21:46:49,369 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:46:53,424 - SensorNetwork_1 - WARNING - Network alert: Sensor value 11.74 below warning threshold 15.00
+2026-03-01 21:46:53,425 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.73
+2026-03-01 21:46:53,425 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.78
+2026-03-01 21:46:53,425 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 11.74 below warning threshold 15.00
+2026-03-01 21:46:53,426 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.70
+2026-03-01 21:46:53,426 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.70
+2026-03-01 21:46:53,426 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.78
+2026-03-01 21:46:53,426 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.73
+2026-03-01 21:46:54,370 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:46:54,427 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.72
+2026-03-01 21:46:54,427 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.72
+2026-03-01 21:46:54,427 - SensorNetwork_1 - WARNING - Network alert: Sensor value 13.61 below warning threshold 15.00
+2026-03-01 21:46:54,428 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.72
+2026-03-01 21:46:54,427 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.72
+2026-03-01 21:46:54,428 - Sensor_102 - WARNING - [WARNING_LOW] Sensor value 13.61 below warning threshold 15.00
+2026-03-01 21:46:55,428 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.74
+2026-03-01 21:46:55,428 - SensorNetwork_1 - WARNING - Network alert: Sensor value 8.90 below critical threshold 10.00
+2026-03-01 21:46:55,428 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.76
+2026-03-01 21:46:55,429 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.76
+2026-03-01 21:46:55,428 - Sensor_102 - ERROR - [CRITICAL_LOW] Sensor value 8.90 below critical threshold 10.00
+2026-03-01 21:46:55,429 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.76
+2026-03-01 21:46:55,429 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.76
+2026-03-01 21:46:55,428 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.74
+2026-03-01 21:46:56,429 - Sensor_101 - INFO - Sensor monitoring stopped
+2026-03-01 21:46:56,430 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.67
+2026-03-01 21:46:56,430 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.74
+2026-03-01 21:46:56,430 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.67
+2026-03-01 21:46:56,430 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.74
+2026-03-01 21:46:57,427 - SensorNetwork_1 - WARNING - Network alert: Multiple SENSOR_OFFLINE alerts detected (4 in last 5 minutes)
+2026-03-01 21:46:57,428 - SensorNetwork_1 - WARNING - Network alert: Multiple QUALITY_LOW alerts detected (10 in last 5 minutes)
+2026-03-01 21:46:57,430 - Sensor_102 - INFO - Sensor monitoring stopped
+2026-03-01 21:46:57,431 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.78
+2026-03-01 21:46:57,431 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.78
+2026-03-01 21:46:58,426 - Sensor_201 - INFO - Sensor monitoring stopped
+2026-03-01 21:46:58,431 - Sensor_301 - INFO - Sensor monitoring stopped
+2026-03-01 21:46:58,431 - Sensor_101 - INFO - Sensor monitoring stopped
+2026-03-01 21:46:58,431 - Sensor_102 - INFO - Sensor monitoring stopped
+2026-03-01 21:46:58,431 - Sensor_201 - INFO - Sensor monitoring stopped
+2026-03-01 21:46:58,431 - Sensor_301 - INFO - Sensor monitoring stopped
+2026-03-01 21:46:59,370 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:47:01,432 - SensorNetwork_1 - INFO - Sensor network stopped
+2026-03-01 21:47:01,432 - Machine_1 - INFO - [MACHINE_STOPPING] Stopping machine (controlled)
+2026-03-01 21:47:01,433 - Machine_2 - INFO - [STOP_INFO] Machine already in emergency stop
+2026-03-01 21:47:01,433 - Machine_3 - INFO - [MACHINE_STOPPING] Stopping machine (controlled)
+2026-03-01 21:49:36,088 - user_security.session_manager - INFO - Invalidated session session_1_1_bf9fcb95c809326e4e8eac91d7bec183
+2026-03-01 21:49:36,099 - user_security.session_manager - INFO - Created session session_1_1_2fbc0e8108589d4df0d0d447ad7e5b80 for user admin
+2026-03-01 21:49:36,125 - user_security.user.admin - INFO - User admin authenticated successfully
+2026-03-01 21:49:36,125 - user_security.auth_manager - INFO - User admin authenticated successfully from 127.0.0.1
+2026-03-01 21:49:36,175 - user_security.session_manager - INFO - Invalidated session session_2_2_ecf310ad230b56833a601368e0dd7baa
+2026-03-01 21:49:36,186 - user_security.session_manager - INFO - Created session session_2_2_01b12b7a495dca5e595dce37d42c916a for user supervisor
+2026-03-01 21:49:36,209 - user_security.user.supervisor - INFO - User supervisor authenticated successfully
+2026-03-01 21:49:36,209 - user_security.auth_manager - INFO - User supervisor authenticated successfully from 127.0.0.1
+2026-03-01 21:49:36,243 - user_security.session_manager - INFO - Invalidated session session_3_3_9a630ce135214b6db9857bf2c7ff429b
+2026-03-01 21:49:36,254 - user_security.session_manager - INFO - Created session session_3_3_14733ba69ab819cbc4b7f709ce596b95 for user operator
+2026-03-01 21:49:36,276 - user_security.user.operator - INFO - User operator authenticated successfully
+2026-03-01 21:49:36,276 - user_security.auth_manager - INFO - User operator authenticated successfully from 127.0.0.1
+2026-03-01 21:49:36,320 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:49:36,321 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:49:36,322 - user_security.session_manager - INFO - Cleaned up 0 expired sessions from database
+2026-03-01 21:49:36,322 - PLC_1 - INFO - PLC Controller Main Factory PLC initialized with protocol SIMULATION
+2026-03-01 21:49:36,323 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:49:36,323 - PLC_1 - INFO - Communication threads started
+2026-03-01 21:49:36,323 - PLC_1 - INFO - Connected to PLC in simulation mode
+2026-03-01 21:49:36,323 - Machine_1 - INFO - [MACHINE_CREATED] Machine Production Line A initialized
+2026-03-01 21:49:36,323 - Machine_2 - INFO - [MACHINE_CREATED] Machine Assembly Robot 1 initialized
+2026-03-01 21:49:36,323 - Machine_3 - INFO - [MACHINE_CREATED] Machine Main Conveyor initialized
+2026-03-01 21:49:36,326 - Machine_1 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:49:37,339 - Machine_2 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:49:38,326 - Machine_1 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:49:38,353 - Machine_3 - INFO - [MACHINE_STARTING] Starting machine to 50% speed
+2026-03-01 21:49:39,339 - Machine_2 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:49:40,354 - Machine_3 - INFO - [MACHINE_STARTED] Machine started at 50% speed
+2026-03-01 21:49:41,323 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:49:41,369 - Machine_2 - CRITICAL - [EMERGENCY_STOP] Emergency stop activated
+2026-03-01 21:49:41,369 - Sensor_101 - INFO - Sensor Production Area Temp 1 (TEMPERATURE) initialized
+2026-03-01 21:49:41,370 - Sensor_102 - INFO - Sensor Production Area Temp 2 (TEMPERATURE) initialized
+2026-03-01 21:49:41,370 - Sensor_201 - INFO - Sensor Hydraulic Pressure (PRESSURE) initialized
+2026-03-01 21:49:41,370 - Sensor_301 - INFO - Sensor Motor Vibration (VIBRATION) initialized
+2026-03-01 21:49:41,370 - Sensor_101 - INFO - Thresholds updated: warn(15.0-35.0), critical(10.0-40.0)
+2026-03-01 21:49:41,370 - Sensor_102 - INFO - Thresholds updated: warn(15.0-35.0), critical(10.0-40.0)
+2026-03-01 21:49:41,370 - Sensor_201 - INFO - Thresholds updated: warn(90.0-110.0), critical(80.0-120.0)
+2026-03-01 21:49:41,370 - Sensor_301 - INFO - Thresholds updated: warn(1.0-5.0), critical(0.5-8.0)
+2026-03-01 21:49:41,370 - Sensor_101 - ERROR - [CRITICAL_HIGH] Sensor value 40.14 above critical threshold 40.00
+2026-03-01 21:49:41,371 - Sensor_101 - INFO - Sensor monitoring started
+2026-03-01 21:49:41,371 - Sensor_102 - INFO - Sensor monitoring started
+2026-03-01 21:49:41,371 - Sensor_201 - INFO - Sensor monitoring started
+2026-03-01 21:49:41,372 - Sensor_301 - INFO - Sensor monitoring started
+2026-03-01 21:49:42,371 - Sensor_102 - WARNING - [WARNING_HIGH] Sensor value 38.44 above warning threshold 35.00
+2026-03-01 21:49:44,372 - SensorNetwork_1 - INFO - Sensor Network 'Factory Floor Sensor Network' initialized
+2026-03-01 21:49:44,373 - SensorNetwork_1 - INFO - Added sensor 101 (Production Area Temp 1) to network
+2026-03-01 21:49:44,373 - SensorNetwork_1 - INFO - Added sensor 102 (Production Area Temp 2) to network
+2026-03-01 21:49:44,373 - SensorNetwork_1 - INFO - Added sensor 201 (Hydraulic Pressure) to network
+2026-03-01 21:49:44,373 - SensorNetwork_1 - INFO - Added sensor 301 (Motor Vibration) to network
+2026-03-01 21:49:44,373 - SensorNetwork_1 - INFO - Created sensor group 'Temperature Monitoring' with 2 sensors
+2026-03-01 21:49:44,374 - SensorNetwork_1 - INFO - Created sensor group 'Machine Health' with 2 sensors
+2026-03-01 21:49:44,374 - SensorNetwork_1 - WARNING - Network alert: Sensor 101 not responding
+2026-03-01 21:49:44,375 - SensorNetwork_1 - WARNING - Network alert: Sensor 102 not responding
+2026-03-01 21:49:44,375 - SensorNetwork_1 - WARNING - Network alert: Sensor 201 not responding
+2026-03-01 21:49:44,375 - SensorNetwork_1 - WARNING - Network alert: Sensor 301 not responding
+2026-03-01 21:49:44,375 - SensorNetwork_1 - WARNING - Network alert: Multiple SENSOR_OFFLINE alerts detected (4 in last 5 minutes)
+2026-03-01 21:49:44,376 - SensorNetwork_1 - INFO - Sensor network started
+2026-03-01 21:49:46,324 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:49:46,372 - SensorNetwork_1 - WARNING - Network alert: Sensor value 36.09 above warning threshold 35.00
+2026-03-01 21:49:46,372 - Sensor_101 - WARNING - [WARNING_HIGH] Sensor value 36.09 above warning threshold 35.00
+2026-03-01 21:49:46,373 - SensorNetwork_1 - WARNING - Network alert: Sensor value 38.61 above warning threshold 35.00
+2026-03-01 21:49:46,373 - Sensor_102 - WARNING - [WARNING_HIGH] Sensor value 38.61 above warning threshold 35.00
+2026-03-01 21:49:50,374 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.75
+2026-03-01 21:49:50,375 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.74
+2026-03-01 21:49:50,375 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.75
+2026-03-01 21:49:50,375 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.74
+2026-03-01 21:49:51,324 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:49:51,374 - SensorNetwork_1 - WARNING - Network alert: Sensor value 14.53 below warning threshold 15.00
+2026-03-01 21:49:51,375 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 14.53 below warning threshold 15.00
+2026-03-01 21:49:51,376 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.77
+2026-03-01 21:49:51,376 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.77
+2026-03-01 21:49:51,376 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.74
+2026-03-01 21:49:51,377 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.74
+2026-03-01 21:49:52,375 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.78
+2026-03-01 21:49:52,375 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.78
+2026-03-01 21:49:52,377 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.75
+2026-03-01 21:49:52,377 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.80
+2026-03-01 21:49:52,378 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.75
+2026-03-01 21:49:52,379 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.80
+2026-03-01 21:49:53,376 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.77
+2026-03-01 21:49:53,376 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.77
+2026-03-01 21:49:53,379 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.76
+2026-03-01 21:49:53,380 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.76
+2026-03-01 21:49:54,376 - SensorNetwork_1 - WARNING - Network alert: Multiple SENSOR_OFFLINE alerts detected (4 in last 5 minutes)
+2026-03-01 21:49:54,376 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.78
+2026-03-01 21:49:54,377 - SensorNetwork_1 - WARNING - Network alert: Multiple QUALITY_LOW alerts detected (9 in last 5 minutes)
+2026-03-01 21:49:54,377 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.78
+2026-03-01 21:49:54,380 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.79
+2026-03-01 21:49:54,380 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.79
+2026-03-01 21:49:55,377 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.78
+2026-03-01 21:49:55,378 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.78
+2026-03-01 21:49:55,380 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.79
+2026-03-01 21:49:55,381 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.79
+2026-03-01 21:49:56,325 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:49:56,378 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.78
+2026-03-01 21:49:56,379 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.78
+2026-03-01 21:49:56,381 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.77
+2026-03-01 21:49:56,381 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.77
+2026-03-01 21:49:58,379 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.80
+2026-03-01 21:49:58,380 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.80
+2026-03-01 21:49:59,380 - SensorNetwork_1 - WARNING - Network alert: Sensor value 10.48 below warning threshold 15.00
+2026-03-01 21:49:59,380 - Sensor_101 - WARNING - [WARNING_LOW] Sensor value 10.48 below warning threshold 15.00
+2026-03-01 21:49:59,381 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.79
+2026-03-01 21:49:59,381 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.79
+2026-03-01 21:49:59,382 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.80
+2026-03-01 21:49:59,383 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.80
+2026-03-01 21:49:59,383 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.79
+2026-03-01 21:49:59,383 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.79
+2026-03-01 21:50:00,381 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.72
+2026-03-01 21:50:00,382 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.72
+2026-03-01 21:50:00,384 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.80
+2026-03-01 21:50:00,384 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.80
+2026-03-01 21:50:00,384 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.73
+2026-03-01 21:50:00,384 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.73
+2026-03-01 21:50:01,325 - PLC_1 - INFO - [SUCCESS] READ_REGISTER PLC_HEARTBEAT (0.0ms) = True 
+2026-03-01 21:50:01,382 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.69
+2026-03-01 21:50:01,382 - Sensor_101 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.69
+2026-03-01 21:50:01,385 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.77
+2026-03-01 21:50:01,385 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.70
+2026-03-01 21:50:01,385 - Sensor_102 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.77
+2026-03-01 21:50:01,385 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.70
+2026-03-01 21:50:02,383 - Sensor_101 - INFO - Sensor monitoring stopped
+2026-03-01 21:50:02,386 - SensorNetwork_1 - WARNING - Network alert: Sensor reading quality low: 0.70
+2026-03-01 21:50:02,386 - Sensor_102 - INFO - Sensor monitoring stopped
+2026-03-01 21:50:02,386 - Sensor_301 - WARNING - [QUALITY_LOW] Sensor reading quality low: 0.70
+2026-03-01 21:50:03,378 - Sensor_201 - INFO - Sensor monitoring stopped
+2026-03-01 21:50:03,387 - Sensor_301 - INFO - Sensor monitoring stopped
+2026-03-01 21:50:03,387 - Sensor_101 - INFO - Sensor monitoring stopped
+2026-03-01 21:50:03,387 - Sensor_102 - INFO - Sensor monitoring stopped
+2026-03-01 21:50:03,387 - Sensor_201 - INFO - Sensor monitoring stopped
+2026-03-01 21:50:03,387 - Sensor_301 - INFO - Sensor monitoring stopped
+2026-03-01 21:50:05,388 - SensorNetwork_1 - INFO - Sensor network stopped
+2026-03-01 21:50:05,388 - Machine_1 - INFO - [MACHINE_STOPPING] Stopping machine (controlled)
+2026-03-01 21:50:05,389 - Machine_2 - INFO - [STOP_INFO] Machine already in emergency stop
+2026-03-01 21:50:05,389 - Machine_3 - INFO - [MACHINE_STOPPING] Stopping machine (controlled)
