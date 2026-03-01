@@ -54,4 +54,18 @@ Deployment strategy (steps)
      - Expose only the gateway to the public network; keep service ports internal.
    - Provide a single client entry point and centralize CORS and rate-limit settings.
 
+8. **Inter-service API configuration**
+   - Use REST/JSON endpoints and stable URL contracts (OpenAPI).
+   - Define health-check endpoints (`/health`) for each service.
+   - Configure services to call each other by internal hostnames/IPs and ports (e.g., `http://automation-service:8001/api/...`).
+   - Use a simple service registry file (mapping hostnames → ports) if DNS is not available.
+
+9. **Monitoring & logs**
+   - Send structured logs from services to Logging Service (HTTP POST `/store-log`) and store in LogDB.
+   - Configure basic process monitoring (systemd) and disk/CPU alerts.
+
+10. **Scaling / updates**
+    - To scale a service, provision another VM/server for that service and update Nginx (or add a simple load balancer).
+    - For updates: pull new code → run migrations → restart service unit (zero-downtime can be approximated by staging and swapping).
+
 
