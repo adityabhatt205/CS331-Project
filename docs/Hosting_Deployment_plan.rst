@@ -25,3 +25,16 @@ Deployment strategy (steps)
    - Install Python 3.10+, pip, PostgreSQL (or chosen DB), Nginx, and a process manager (systemd or supervisor).
    - Configure time sync (ntp/chrony) and basic OS updates.
 
+3. **Create per-service directories**
+   - Place each microservice repository under `/opt/<service-name>/`.
+   - Example: `/opt/user-service`, `/opt/automation-service`, `/opt/logging-service`.
+
+4. **Virtual environment & install**
+   - Create a Python virtualenv per service: `python -m venv venv` → `venv/bin/pip install -r requirements.txt`.
+   - Configure environment variables via a `.env` file (DB URL, secret keys).
+
+5. **Configure databases**
+   - Create separate databases for each service (UserDB, AutomationDB, LogDB).
+   - Apply migrations and seed initial data (if any).
+
+
