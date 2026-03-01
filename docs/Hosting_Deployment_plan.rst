@@ -33,8 +33,25 @@ Deployment strategy (steps)
    - Create a Python virtualenv per service: `python -m venv venv` → `venv/bin/pip install -r requirements.txt`.
    - Configure environment variables via a `.env` file (DB URL, secret keys).
 
+
 5. **Configure databases**
    - Create separate databases for each service (UserDB, AutomationDB, LogDB).
    - Apply migrations and seed initial data (if any).
+
+6. **Service process management**
+   - Create `systemd` service unit files (or use `supervisord`) to run each FastAPI app on its assigned port:
+     - `User Service` → `localhost:8000`
+     - `Automation Service` → `localhost:8001`
+     - `Notification Service` → `localhost:8002`
+     - `Simulation Service` → `localhost:8003`
+     - `Logging Service` → `localhost:8004`
+   - Enable auto-start and restart on failure.
+
+7. **API Gateway / Reverse proxy**
+   - Configure Nginx (or a small API gateway) on the front-facing host:
+     - Route `/api/users/*` → `http://server-1:8000`
+     - Route `/api/automation/*` → `http://server-2:8001`
+     - Expose only the gateway to the public network; keep service ports internal.
+   - Provide a single client entry point and centralize CORS and rate-limit settings.
 
 
