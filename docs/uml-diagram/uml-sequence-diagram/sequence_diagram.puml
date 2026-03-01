@@ -38,3 +38,25 @@ activate EventDetection
 EventDetection --> Automation : EventDetected? (anomaly/fault) / classification
 deactivate EventDetection
 
+' 6. If event/fault detected -> notifications and logging
+alt event/fault detected
+    Automation -> Notification : Create alert (with context)
+    Notification -> Logging : Persist alert history
+    Notification --> Automation : Alert delivery status
+end
+
+' 7. Visualization may request a simulation run (what-if / predictive)
+Visualization -> Simulation : Request scenario simulation (params)
+activate Simulation
+Simulation -> Automation : Request model inputs / recent state
+Automation --> Simulation : Provide state / model inputs
+Simulation --> Visualization : Simulation results / predicted outcomes
+deactivate Simulation
+
+' 8. Automation may request simulation for predictive control
+Automation -> Simulation : Ask for prediction / recommend action
+Simulation --> Automation : Predicted outcome / suggested parameters
+
+deactivate Automation
+@enduml
+
