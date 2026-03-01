@@ -13,3 +13,15 @@ Host site
 - **Alternate hosting option (cloud VM):**
   - Use basic cloud VMs (one VM per service) on AWS EC2 / Azure VM / GCP Compute Engine.
   - Same per-service port mapping as above; use cloud VM public IPs + a simple load balancer for scalable services.
+
+Deployment strategy (steps)
+---------------------------
+
+1. **Prepare hosts**
+   - Provision Linux servers or cloud VMs.
+   - Create a deployment user (non-root) and configure SSH access.
+
+2. **Install runtime & dependencies**
+   - Install Python 3.10+, pip, PostgreSQL (or chosen DB), Nginx, and a process manager (systemd or supervisor).
+   - Configure time sync (ntp/chrony) and basic OS updates.
+
