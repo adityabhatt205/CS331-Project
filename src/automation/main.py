@@ -1,16 +1,11 @@
 """
-Automation Service — Digital Twin Industrial Automation System
+Automation Service 
 =============================================================
-Single-file FastAPI microservice.
-
 Responsibilities:
   - Ingest sensor data from production stations
   - Run a multi-rule fault detection engine
   - Persist fault events to SQLite
   - Forward alerts to the Notification Service (with retries)
-
-Run:
-    uvicorn main:app --reload --port 8001
 """
 
 import json
