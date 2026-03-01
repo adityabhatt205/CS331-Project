@@ -119,3 +119,34 @@ Deployment strategy (steps)
       sudo systemctl restart <service>
       ```
 
+Security (minimal measures)
+---------------------------------------
+
+- **Expose only Nginx externally**:
+  - Block direct access to service ports using `ufw`:
+    ```
+    sudo ufw allow 'Nginx Full'   # 80,443
+    sudo ufw deny 8000:8010/tcp
+    ```
+- **HTTPS on gateway**:
+  - Use Let’s Encrypt (certbot) for TLS termination at Nginx.
+- **Token-based authentication**:
+  - Enforce JWT tokens for user APIs; validate at gateway or per service using FastAPI dependencies.
+- **Secrets management**:
+  - Keep DB passwords and keys in `.env` owned by deploy user, not in source control.
+- **SSH & admin access**:
+  - Restrict SSH to admin IPs and use key-based authentication only.
+
+Trade-offs & future scaling
+---------------------------
+
+- **Single-server pros (college-level)**:
+  - Simple to deploy and manage on the college server.
+  - Lower operational overhead; good for development and lab demonstrations.
+- **Single-server cons**:
+  - Single point of failure; limited horizontal scaling.
+- **Future migration**:
+  - Because services are independent processes with stable APIs, they can later be moved to separate servers or cloud VMs (or containerized) with minimal code changes.
+
+
+
