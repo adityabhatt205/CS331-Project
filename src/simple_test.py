@@ -22,11 +22,11 @@ def main():
             name="Test Machine",
             machine_type=MachineType.PRODUCTION_LINE
         )
-        print(f"✓ Machine created: {machine.name}")
-        print(f"✓ Status: {machine.status.value}")
-        print(f"✓ Type: {machine.machine_type.value}")
+        print(f"Machine created: {machine.name}")
+        print(f"Status: {machine.status.value}")
+        print(f"Type: {machine.machine_type.value}")
     except Exception as e:
-        print(f"✗ Machine creation failed: {e}")
+        print(f"[FAILED] Machine creation failed: {e}")
         return False
     
     # Test 2: Sensor Creation
@@ -41,15 +41,15 @@ def main():
         # Set conservative thresholds to avoid alerts
         sensor.set_thresholds(10.0, 40.0, 5.0, 45.0)
         
-        print(f"✓ Sensor created: {sensor.name}")
-        print(f"✓ Type: {sensor.sensor_type.value}")
-        print(f"✓ Status: {sensor.status.value}")
+        print(f"Sensor created: {sensor.name}")
+        print(f"Type: {sensor.sensor_type.value}")
+        print(f"Status: {sensor.status.value}")
         
         # Get a reading
         reading = sensor.read_data()
-        print(f"✓ Reading: {reading.value:.2f} {sensor.unit}")
+        print(f"Reading: {reading.value:.2f} {sensor.unit}")
     except Exception as e:
-        print(f"✗ Sensor creation failed: {e}")
+        print(f"[FAILED] Sensor creation failed: {e}")
         return False
     
     # Test 3: PLC Controller
@@ -61,15 +61,15 @@ def main():
             protocol=PLCProtocol.SIMULATION
         )
         
-        print(f"✓ PLC created: {plc.name}")
-        print(f"✓ Protocol: {plc.protocol.value}")
-        print(f"✓ Status: {plc.status.value}")
+        print(f"PLC created: {plc.name}")
+        print(f"Protocol: {plc.protocol.value}")
+        print(f"Status: {plc.status.value}")
         
         # Test connection
         connected = plc.connect()
-        print(f"✓ Connection: {'Success' if connected else 'Failed'}")
+        print(f"Connection: {'Success' if connected else 'Failed'}")
     except Exception as e:
-        print(f"✗ PLC creation failed: {e}")
+        print(f"[FAILED] PLC creation failed: {e}")
         return False
     
     # Test 4: Sensor Network
@@ -82,8 +82,8 @@ def main():
         )
         
         network = SensorNetwork(config)
-        print(f"✓ Network created: {network.config.name}")
-        print(f"✓ Status: {network.status.value}")
+        print(f"Network created: {network.config.name}")
+        print(f"Status: {network.status.value}")
         
         # Add a sensor
         test_sensor = Sensor(
@@ -96,9 +96,9 @@ def main():
         test_sensor.set_thresholds(90.0, 110.0, 80.0, 120.0)
         
         success = network.add_sensor(test_sensor)
-        print(f"✓ Add sensor: {'Success' if success else 'Failed'}")
+        print(f"Add sensor: {'Success' if success else 'Failed'}")
     except Exception as e:
-        print(f"✗ Network creation failed: {e}")
+        print(f"[FAILED] Network creation failed: {e}")
         return False
     
     # Test 5: Integration
@@ -106,26 +106,26 @@ def main():
     try:
         # Start machine
         machine.start()
-        print(f"✓ Machine started: {machine.status.value}")
+        print(f"Machine started: {machine.status.value}")
         
         # Get sensor reading
         reading = sensor.read_data()
-        print(f"✓ Sensor reading: {reading.value:.2f} {sensor.unit}")
+        print(f"Sensor reading: {reading.value:.2f} {sensor.unit}")
         
         # PLC operation
         plc.write_register("temperature", reading.value)
-        print("✓ PLC register write: Success")
+        print("PLC register write: Success")
         
         # Stop machine
         machine.stop()
-        print(f"✓ Machine stopped: {machine.status.value}")
+        print(f"Machine stopped: {machine.status.value}")
         
     except Exception as e:
-        print(f"✗ Integration test failed: {e}")
+        print(f"[FAILED] Integration test failed: {e}")
         return False
     
     print("\n============================================================")
-    print("ALL TESTS PASSED! ✓")
+    print("ALL TESTS PASSED!")
     print("Machines_sensors module is working correctly.")
     print("============================================================")
     return True

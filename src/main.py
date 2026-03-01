@@ -47,16 +47,16 @@ def main():
             
             if session_id:
                 user = auth_manager.get_user_by_session(session_id)
-                print(f"\n✓ Successfully logged in as {user.username} ({user.get_role()})")
+                print(f"\n[SUCCESS] Successfully logged in as {user.username} ({user.get_role()})")
                 
                 # Show available actions based on role
                 show_user_capabilities(user, session_id)
                 
                 # Logout
                 auth_manager.logout_user(username)
-                print(f"✓ {username} logged out")
+                print(f"[SUCCESS] {username} logged out")
             else:
-                print("✗ Authentication failed")
+                print("[FAILED] Authentication failed")
         else:
             print("Invalid choice")
     
@@ -69,37 +69,37 @@ def show_user_capabilities(user, session_id):
     
     # Common capabilities
     if user.check_permission(Permission.VIEW_LIVE_STATUS):
-        print("✓ View live factory status")
+        print("- View live factory status")
     
     if user.check_permission(Permission.VIEW_MACHINE_STATUS):
-        print("✓ View machine status")
+        print("- View machine status")
     
     if user.check_permission(Permission.VIEW_ALERTS):
-        print("✓ View system alerts")
+        print("- View system alerts")
     
     # Machine control
     if user.check_permission(Permission.START_MACHINE):
-        print("✓ Start/stop machines")
+        print("- Start/stop machines")
     
     if user.check_permission(Permission.CONTROL_CONVEYOR):
-        print("✓ Control conveyor belts")
+        print("- Control conveyor belts")
     
     if user.check_permission(Permission.EMERGENCY_STOP):
-        print("✓ Emergency stop")
+        print("- Emergency stop")
     
     # Automation
     if user.check_permission(Permission.APPROVE_AUTOMATION):
-        print("✓ Approve automation rules")
+        print("- Approve automation rules")
     
     if user.check_permission(Permission.CREATE_AUTOMATION_RULE):
-        print("✓ Create automation rules")
+        print("- Create automation rules")
     
     # Administration
     if user.check_permission(Permission.CREATE_USER):
-        print("✓ User management (create/delete users)")
+        print("- User management (create/delete users)")
     
     if user.check_permission(Permission.UPDATE_SYSTEM_CONFIG):
-        print("✓ System configuration")
+        print("- System configuration")
     
     # Demonstrate specific role functionality
     print(f"\n--- {user.get_role()} Specific Actions ---")

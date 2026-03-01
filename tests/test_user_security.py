@@ -28,7 +28,7 @@ def test_authentication():
     nonexistent_session = auth_manager.authenticate_user("nonexistent", "password")
     assert nonexistent_session is None, "Nonexistent user should fail"
     
-    print("✓ Authentication tests passed")
+    print("Authentication tests passed")
 
 
 def test_permissions():
@@ -53,7 +53,7 @@ def test_permissions():
     assert not auth_manager.check_permission(operator_session, Permission.CREATE_USER), "Operator should not create users"
     assert not auth_manager.check_permission(operator_session, Permission.APPROVE_AUTOMATION), "Operator should not approve automation"
     
-    print("✓ Permission tests passed")
+    print("Permission tests passed")
 
 
 def test_user_management():
@@ -83,7 +83,7 @@ def test_user_management():
     not_deleted = auth_manager.delete_user(admin_session, "nonexistent")
     assert not not_deleted, "Deleting nonexistent user should fail"
     
-    print("✓ User management tests passed")
+    print("User management tests passed")
 
 
 def test_session_management():
@@ -107,7 +107,7 @@ def test_session_management():
     user_after_logout = auth_manager.get_user_by_session(session_id)
     assert user_after_logout is None or not user_after_logout.is_authenticated, "Session should be invalid after logout"
     
-    print("✓ Session management tests passed")
+    print("Session management tests passed")
 
 
 def test_role_hierarchy():
@@ -135,7 +135,7 @@ def test_role_hierarchy():
     # Operator permissions should be subset of supervisor permissions
     assert operator_perms.issubset(supervisor_perms), "Operator permissions should be subset of supervisor"
     
-    print("✓ Role hierarchy tests passed")
+    print("Role hierarchy tests passed")
 
 
 def run_all_tests():
@@ -151,14 +151,14 @@ def run_all_tests():
         test_role_hierarchy()
         
         print("\n" + "=" * 40)
-        print("✓ All tests passed!")
+        print("[SUCCESS] All tests passed!")
         return True
         
     except AssertionError as e:
-        print(f"\n✗ Test failed: {e}")
+        print(f"\n[FAILED] Test failed: {e}")
         return False
     except Exception as e:
-        print(f"\n✗ Unexpected error: {e}")
+        print(f"\n[FAILED] Unexpected error: {e}")
         return False
 
 

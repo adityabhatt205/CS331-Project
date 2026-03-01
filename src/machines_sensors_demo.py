@@ -42,50 +42,50 @@ def demo_user_security():
     # Admin login
     admin_session = auth_manager.authenticate_user("admin", "admin123", "127.0.0.1")
     if admin_session:
-        print("✓ Admin authentication successful")
+        print("[SUCCESS] Admin authentication successful")
         print(f"  Session ID: {admin_session}")
     else:
-        print("✗ Admin authentication failed")
+        print("[FAILED] Admin authentication failed")
     
     # Supervisor login
     supervisor_session = auth_manager.authenticate_user("supervisor", "super123", "127.0.0.1")
     if supervisor_session:
-        print("✓ Supervisor authentication successful") 
+        print("[SUCCESS] Supervisor authentication successful") 
         print(f"  Session ID: {supervisor_session}")
     else:
-        print("✗ Supervisor authentication failed")
+        print("[FAILED] Supervisor authentication failed")
     
     # Operator login
     operator_session = auth_manager.authenticate_user("operator", "op123", "127.0.0.1")
     if operator_session:
-        print("✓ Operator authentication successful")
+        print("[SUCCESS] Operator authentication successful")
         print(f"  Session ID: {operator_session}")
     else:
-        print("✗ Operator authentication failed")
+        print("[FAILED] Operator authentication failed")
     
     # Test permissions
     print("\n2. Testing Permissions...")
     
     # Admin permissions
     if auth_manager.check_permission(admin_session, Permission.CREATE_USER):
-        print("✓ Admin can create users")
+        print("[SUCCESS] Admin can create users")
     
     if auth_manager.check_permission(admin_session, Permission.START_MACHINE):
-        print("✓ Admin can start machines")
+        print("[SUCCESS] Admin can start machines")
     
     # Supervisor permissions
     if auth_manager.check_permission(supervisor_session, Permission.START_MACHINE):
-        print("✓ Supervisor can start machines")
+        print("[SUCCESS] Supervisor can start machines")
     
     if not auth_manager.check_permission(supervisor_session, Permission.CREATE_USER):
-        print("✓ Supervisor cannot create users (correct restriction)")
+        print("[SUCCESS] Supervisor cannot create users (correct restriction)")
     
     # Operator permissions
     if not auth_manager.check_permission(operator_session, Permission.START_MACHINE):
-        print("✓ Operator cannot start machines (correct restriction)")
+        print("[SUCCESS] Operator cannot start machines (correct restriction)")
     
     if auth_manager.check_permission(operator_session, Permission.VIEW_SENSOR_DATA):
-        print("✓ Operator can view sensor data")
+        print("[SUCCESS] Operator can view sensor data")
     
     # Display system stats
     print("\n3. System Statistics...")
@@ -156,7 +156,7 @@ def demo_machine_management(admin_session, supervisor_session):
     for machine in machines:
         if auth_manager.check_permission(supervisor_session, Permission.START_MACHINE):
             success = machine.start()  # Remove user_id parameter
-            print(f"Started {machine.name}: {'✓' if success else '✗'}")
+            print(f"Started {machine.name}: {'[SUCCESS]' if success else '[FAILED]'}")
             time.sleep(1)
     
     # Monitor machine operations
@@ -176,7 +176,7 @@ def demo_machine_management(admin_session, supervisor_session):
     print("\n5. Testing Emergency Stop...")
     if auth_manager.check_permission(supervisor_session, Permission.EMERGENCY_STOP):
         success = assembly_machine.emergency_stop()  # Remove user_id parameter
-        print(f"Emergency stop executed: {'✓' if success else '✗'}")
+        print(f"Emergency stop executed: {'[SUCCESS]' if success else '[FAILED]'}")
         print(f"Assembly machine status: {assembly_machine.status.value}")
     
     return machines, plc
@@ -293,7 +293,7 @@ def demo_sensor_network(sensors):
     print("\n2. Adding Sensors to Network...")
     for sensor in sensors:
         success = sensor_network.add_sensor(sensor)
-        print(f"Added sensor {sensor.name}: {'✓' if success else '✗'}")
+        print(f"Added sensor {sensor.name}: {'[SUCCESS]' if success else '[FAILED]'}")
     
     # Create sensor groups
     print("\n3. Creating Sensor Groups...")
@@ -319,12 +319,12 @@ def demo_sensor_network(sensors):
     network_groups = [temp_group, machine_group]
     for group in network_groups:
         success = sensor_network.create_sensor_group(group)
-        print(f"Created group '{group.name}': {'✓' if success else '✗'}")
+        print(f"Created group '{group.name}': {'[SUCCESS]' if success else '[FAILED]'}")
     
     # Start network monitoring
     print("\n4. Starting Network Monitoring...")
     success = sensor_network.start_network()
-    print(f"Network started: {'✓' if success else '✗'}")
+    print(f"Network started: {'[SUCCESS]' if success else '[FAILED]'}")
     print(f"Network status: {sensor_network.status.value}")
     
     # Let the network collect some data

@@ -4,7 +4,7 @@ A comprehensive factory floor system module providing enterprise-grade machine c
 
 ## Features
 
-### 🏭 Machine Management (`machine.py`)
+### Machine Management (`machine.py`)
 - **Comprehensive Machine Control**: Production lines, assembly robots, conveyors, and more
 - **Status Tracking**: Real-time machine status monitoring with detailed state management
 - **Safety Systems**: Multi-level safety controls with emergency stop capabilities
@@ -27,7 +27,7 @@ A comprehensive factory floor system module providing enterprise-grade machine c
 - HIGH: Full safety systems with redundancy
 - CRITICAL: Maximum safety for hazardous operations
 
-### 🔧 PLC Controller (`plc_controller.py`)
+### PLC Controller (`plc_controller.py`)
 - **Multi-Protocol Support**: MODBUS TCP, Ethernet/IP, PROFINET, and simulation mode
 - **Command Validation**: Comprehensive command validation and safety checks
 - **Register Management**: Complete register mapping and access control
@@ -43,7 +43,7 @@ A comprehensive factory floor system module providing enterprise-grade machine c
 - System Reset
 - Heartbeat Monitoring
 
-### 📊 Sensor System (`sensor.py`)
+### Sensor System (`sensor.py`)
 - **Multi-Type Sensors**: Temperature, pressure, vibration, humidity, and 12+ sensor types
 - **Real-Time Monitoring**: Continuous data collection with configurable sampling rates
 - **Alert System**: Configurable thresholds with multi-level alerting

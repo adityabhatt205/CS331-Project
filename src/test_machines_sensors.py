@@ -27,20 +27,20 @@ def test_machine_creation():
         location="Test Area"
     )
     
-    print(f"✓ Created machine: {machine.name}")
-    print(f"✓ Status: {machine.status.value}")
-    print(f"✓ Type: {machine.machine_type.value}")
+    print(f"Created machine: {machine.name}")
+    print(f"Status: {machine.status.value}")
+    print(f"Type: {machine.machine_type.value}")
     
     # Test start/stop
     success = machine.start()
-    print(f"✓ Start machine: {'Success' if success else 'Failed'}")
-    print(f"✓ Status after start: {machine.status.value}")
+    print(f"Start machine: {'Success' if success else 'Failed'}")
+    print(f"Status after start: {machine.status.value}")
     
     time.sleep(1)
     
     success = machine.stop()
-    print(f"✓ Stop machine: {'Success' if success else 'Failed'}")
-    print(f"✓ Status after stop: {machine.status.value}")
+    print(f"Stop machine: {'Success' if success else 'Failed'}")
+    print(f"Status after stop: {machine.status.value}")
     
     return machine
 
@@ -60,19 +60,19 @@ def test_sensor_creation():
     # Set reasonable thresholds for temperature sensor
     sensor.set_thresholds(15.0, 35.0, 0.0, 50.0)  # Warning: 15-35°C, Critical: 0-50°C
     
-    print(f"✓ Created sensor: {sensor.name}")
-    print(f"✓ Type: {sensor.sensor_type.value}")
-    print(f"✓ Status: {sensor.status.value}")
+    print(f"Created sensor: {sensor.name}")
+    print(f"Type: {sensor.sensor_type.value}")
+    print(f"Status: {sensor.status.value}")
     
     # Test reading
     reading = sensor.read_data()
-    print(f"✓ Reading value: {reading.value:.2f} {reading.unit}")
-    print(f"✓ Reading quality: {reading.quality:.2f}")
-    print(f"✓ Timestamp: {reading.timestamp}")
+    print(f"Reading value: {reading.value:.2f} {reading.unit}")
+    print(f"Reading quality: {reading.quality:.2f}")
+    print(f"Timestamp: {reading.timestamp}")
     
     # Test calibration
     success = sensor.calibrate(25.0)
-    print(f"✓ Calibration: {'Success' if success else 'Failed'}")
+    print(f"Calibration: {'Success' if success else 'Failed'}")
     
     return sensor
 
@@ -88,23 +88,23 @@ def test_plc_controller():
         host="localhost"
     )
     
-    print(f"✓ Created PLC: {plc.name}")
-    print(f"✓ Status: {plc.status.value}")
-    print(f"✓ Connected: {plc.is_connected}")
+    print(f"Created PLC: {plc.name}")
+    print(f"Status: {plc.status.value}")
+    print(f"Connected: {plc.is_connected}")
     
     # Test register operations
     success = plc.write_register("MACHINE_SPEED", 100)
-    print(f"✓ Write register: {'Success' if success else 'Failed'}")
+    print(f"Write register: {'Success' if success else 'Failed'}")
     
     value = plc.read_register("MACHINE_SPEED")
-    print(f"✓ Read register: {value}")
+    print(f"Read register: {value}")
     
     # Test coil operations
     success = plc.write_coil("MACHINE_START", True)
-    print(f"✓ Write coil: {'Success' if success else 'Failed'}")
+    print(f"Write coil: {'Success' if success else 'Failed'}")
     
     value = plc.read_coil("MACHINE_START")
-    print(f"✓ Read coil: {value}")
+    print(f"Read coil: {value}")
     
     return plc
 
@@ -121,8 +121,8 @@ def test_sensor_network():
     
     # Create network
     network = SensorNetwork(config)
-    print(f"✓ Created network: {network.config.name}")
-    print(f"✓ Status: {network.status.value}")
+    print(f"Created network: {network.config.name}")
+    print(f"Status: {network.status.value}")
     
     # Create test sensors with proper thresholds
     sensors = []
@@ -139,7 +139,7 @@ def test_sensor_network():
         
         # Add to network
         success = network.add_sensor(sensor)
-        print(f"✓ Added sensor {i+1}: {'Success' if success else 'Failed'}")
+        print(f"Added sensor {i+1}: {'Success' if success else 'Failed'}")
     
     # Create sensor group
     group = SensorGroup(
@@ -151,24 +151,24 @@ def test_sensor_network():
     )
     
     success = network.create_sensor_group(group)
-    print(f"✓ Created sensor group: {'Success' if success else 'Failed'}")
+    print(f"Created sensor group: {'Success' if success else 'Failed'}")
     
     # Start network
     success = network.start_network()
-    print(f"✓ Started network: {'Success' if success else 'Failed'}")
-    print(f"✓ Network status: {network.status.value}")
+    print(f"Started network: {'Success' if success else 'Failed'}")
+    print(f"Network status: {network.status.value}")
     
     # Let it collect some data
     time.sleep(2)
     
     # Get summary
     summary = network.get_network_summary()
-    print(f"✓ Total sensors: {summary['metrics']['total_sensors']}")
-    print(f"✓ Active sensors: {summary['metrics']['active_sensors']}")
+    print(f"Total sensors: {summary['metrics']['total_sensors']}")
+    print(f"Active sensors: {summary['metrics']['active_sensors']}")
     
     # Stop network
     network.stop_network()
-    print(f"✓ Network stopped: {network.status.value}")
+    print(f"Network stopped: {network.status.value}")
     
     return network
 
@@ -209,9 +209,9 @@ def test_integration():
     machine.start()
     network.start_network()
     
-    print(f"✓ Machine status: {machine.status.value}")
-    print(f"✓ Network status: {network.status.value}")
-    print(f"✓ Sensor status: {sensor.status.value}")
+    print(f"Machine status: {machine.status.value}")
+    print(f"Network status: {network.status.value}")
+    print(f"Sensor status: {sensor.status.value}")
     
     # Let them run briefly
     time.sleep(2)
@@ -220,14 +220,14 @@ def test_integration():
     machine_stats = machine.get_status_info()
     network_summary = network.get_network_summary()
     
-    print(f"✓ Machine operating hours: {machine_stats.get('operating_hours', 0):.4f} hours")
-    print(f"✓ Network readings: {network_summary['total_readings_collected']}")
+    print(f"Machine operating hours: {machine_stats.get('operating_hours', 0):.4f} hours")
+    print(f"Network readings: {network_summary['total_readings_collected']}")
     
     # Cleanup
     machine.stop()
     network.stop_network()
     
-    print("✓ Integration test completed")
+    print("Integration test completed")
 
 def main():
     """Run all tests."""
@@ -249,14 +249,14 @@ def main():
         print("\n" + "="*60)
         print("ALL TESTS COMPLETED SUCCESSFULLY!")
         print("="*60)
-        print("✓ Machine management working")
-        print("✓ Sensor monitoring working")
-        print("✓ PLC communication working")
-        print("✓ Sensor network working")
-        print("✓ Component integration working")
+        print("Machine management working")
+        print("Sensor monitoring working")
+        print("PLC communication working")
+        print("Sensor network working")
+        print("Component integration working")
         
     except Exception as e:
-        print(f"\n✗ Test failed with error: {e}")
+        print(f"\n[FAILED] Test failed with error: {e}")
         import traceback
         traceback.print_exc()
 

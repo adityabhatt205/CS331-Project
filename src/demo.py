@@ -25,10 +25,10 @@ class MachineController:
         if machine_id in self.machines:
             self.machines[machine_id]['status'] = 'running'
             self.machines[machine_id]['speed'] = 1200
-            print(f"✓ Machine {machine_id} started")
+            print(f"Machine {machine_id} started")
             return True
         
-        print(f"✗ Machine {machine_id} not found")
+        print(f"[FAILED] Machine {machine_id} not found")
         return False
     
     @require_permission(Permission.STOP_MACHINE)
@@ -37,10 +37,10 @@ class MachineController:
         if machine_id in self.machines:
             self.machines[machine_id]['status'] = 'stopped'
             self.machines[machine_id]['speed'] = 0
-            print(f"✓ Machine {machine_id} stopped")
+            print(f"Machine {machine_id} stopped")
             return True
         
-        print(f"✗ Machine {machine_id} not found")
+        print(f"[FAILED] Machine {machine_id} not found")
         return False
     
     @require_permission(Permission.VIEW_MACHINE_STATUS)
@@ -56,10 +56,10 @@ class MachineController:
         if machine_id in self.machines:
             self.machines[machine_id]['status'] = 'maintenance'
             self.machines[machine_id]['speed'] = 0
-            print(f"✓ Machine {machine_id} set to maintenance mode")
+            print(f"Machine {machine_id} set to maintenance mode")
             return True
         
-        print(f"✗ Machine {machine_id} not found")
+        print(f"[FAILED] Machine {machine_id} not found")
         return False
 
 
@@ -84,11 +84,11 @@ def demo_role_based_access():
         session_id = auth_manager.authenticate_user(username, password)
         
         if not session_id:
-            print(f"✗ Authentication failed for {username}")
+            print(f"[FAILED] Authentication failed for {username}")
             continue
         
         user = auth_manager.get_user_by_session(session_id)
-        print(f"✓ {username} authenticated as {user.get_role()}")
+        print(f"{username} authenticated as {user.get_role()}")
         
         # Test machine operations
         print(f"\n{username} trying to:")
@@ -96,32 +96,32 @@ def demo_role_based_access():
         # View machine status (all roles should have this)
         status = controller.get_machine_status(session_id, 'M001')
         if status:
-            print(f"  ✓ View machine status: {status}")
+            print(f"  View machine status: {status}")
         
         # Start machine (Operator+ should have this)
         result = controller.start_machine(session_id, 'M001')
         if not result:
-            print(f"  ✗ Start machine: Permission denied")
+            print(f"  [FAILED] Start machine: Permission denied")
         
         # Set maintenance mode (Admin/Supervisor only)
         result = controller.set_maintenance_mode(session_id, 'M002')
         if not result:
-            print(f"  ✗ Set maintenance mode: Permission denied")
+            print(f"  [FAILED] Set maintenance mode: Permission denied")
         
         # Test user management (Admin only)
         if user.get_role() == "ADMIN":
             new_user = auth_manager.create_user(session_id, f"test_{username}", "test123", "OPERATOR")
             if new_user:
-                print(f"  ✓ Created test user: {new_user.username}")
+                print(f"  Created test user: {new_user.username}")
         else:
             # Try to create user (should fail for non-admin)
             new_user = auth_manager.create_user(session_id, f"test_{username}", "test123", "OPERATOR")
             if not new_user:
-                print(f"  ✗ Create user: Permission denied")
+                print(f"  [FAILED] Create user: Permission denied")
         
         # Logout
         auth_manager.logout_user(username)
-        print(f"✓ {username} logged out")
+        print(f"{username} logged out")
 
 
 def demo_permission_context():
@@ -136,10 +136,10 @@ def demo_permission_context():
     # Safe operation with context manager
     with PermissionContext(admin_session, Permission.CREATE_USER) as authorized:
         if authorized:
-            print("  ✓ Admin is authorized to create users")
+            print("  Admin is authorized to create users")
             # Would perform user creation here
         else:
-            print("  ✗ Not authorized to create users")
+            print("  [FAILED] Not authorized to create users")
     
     # Cleanup
     auth_manager.logout_user("admin")
@@ -159,7 +159,7 @@ def demo_session_management():
         session_id = auth_manager.authenticate_user(username, password)
         if session_id:
             sessions.append((username, session_id))
-            print(f"✓ {username} logged in")
+            print(f"{username} logged in")
     
     # Show active sessions
     active = auth_manager.get_active_sessions()
@@ -170,7 +170,7 @@ def demo_session_management():
     # Logout all users
     for username, session_id in sessions:
         auth_manager.logout_user(username)
-        print(f"✓ {username} logged out")
+        print(f"{username} logged out")
     
     # Final state
     stats = auth_manager.get_system_stats()
@@ -197,7 +197,7 @@ def demo_permission_checking():
     
     for perm in permissions_to_check:
         has_perm = operator.check_permission(perm)
-        status = "✓" if has_perm else "✗"
+        status = "[OK]" if has_perm else "[NO]"
         print(f"  {status} {perm.value}")
     
     # Show all operator permissions
@@ -245,9 +245,9 @@ def interactive_demo():
                 
                 if current_session:
                     current_user = auth_manager.get_user_by_session(current_session)
-                    print(f"\n✓ Logged in as {current_user.username} ({current_user.get_role()})")
+                    print(f"\nLogged in as {current_user.username} ({current_user.get_role()})")
                 else:
-                    print("✗ Login failed")
+                    print("[FAILED] Login failed")
             else:
                 print("Invalid choice")
                 
@@ -296,7 +296,7 @@ def interactive_demo():
                     
             elif action == "7":
                 auth_manager.logout_user(current_user.username)
-                print(f"✓ {current_user.username} logged out")
+                print(f"{current_user.username} logged out")
                 current_session = None
                 current_user = None
                 
