@@ -1,71 +1,121 @@
-Hosting and Deployment Plan
-===========================
+Single-Server FastAPI Hosting & Deployment Plan
+===============================================
 
 Host site
 ---------
 
-- **Primary hosting option (local):**
-  - Deploy services on one or more local Linux servers/VMs (Ubuntu 20.04).
-  - Example mapping (single-factory, small-scale):
-    - `Server-1` : User Service (port 8000), Notification Service (8002)
-    - `Server-2` : Automation Service (port 8001), Device Integration
-    - `Server-3` : Simulation Service (port 8003), Logging Service (port 8004)
-- **Alternate hosting option (cloud VM):**
-  - Use basic cloud VMs (one VM per service) on AWS EC2 / Azure VM / GCP Compute Engine.
-  - Same per-service port mapping as above; use cloud VM public IPs + a simple load balancer for scalable services.
+- **Primary hosting (college / local server):**
+  - Single Linux server (Ubuntu 20.04) hosts all microservices as independent processes.
+  - Per-service port mapping (single-host example):
+    - User Service  .......... `http://<server-ip>:8000`
+    - Automation Service ..... `http://<server-ip>:8001`
+    - Notification Service ... `http://<server-ip>:8002`
+    - Simulation Service ..... `http://<server-ip>:8003`
+    - Logging Service ........ `http://<server-ip>:8004`
+  - **Nginx (API Gateway / reverse proxy)** runs on the same host and exposes a single public endpoint (ports 80/443) to clients.
+
+- **Note (future scaling):**
+  - Services are designed to be independently deployable; if load grows later they can be moved to separate servers or cloud VMs without changing the application design.
 
 Deployment strategy (steps)
 ---------------------------
 
-1. **Prepare hosts**
-   - Provision Linux servers or cloud VMs.
-   - Create a deployment user (non-root) and configure SSH access.
+1. **Prepare host**
+   - Provision the college server (Ubuntu 20.04 recommended).
+   - Create a non-root deploy user:
+     ```
+     sudo adduser deploy
+     sudo usermod -aG sudo deploy
+     ```
+   - Configure SSH key authentication and basic firewall (ufw).
 
-2. **Install runtime & dependencies**
-   - Install Python 3.10+, pip, PostgreSQL (or chosen DB), Nginx, and a process manager (systemd or supervisor).
-   - Configure time sync (ntp/chrony) and basic OS updates.
+2. **Install base packages**
+   - Install runtime and utilities:
+     ```
+     sudo apt update
+     sudo apt install -y python3.10 python3-venv python3-pip nginx postgresql git
+     sudo apt install -y ntp ufw
+     ```
 
-3. **Create per-service directories**
-   - Place each microservice repository under `/opt/<service-name>/`.
-   - Example: `/opt/user-service`, `/opt/automation-service`, `/opt/logging-service`.
+3. **Directory layout & code checkout**
+   - Create per-service directories under `/opt`:
+     ```
+     sudo mkdir -p /opt/user-service /opt/automation-service /opt/notification-service /opt/simulation-service /opt/logging-service
+     sudo chown -R deploy:deploy /opt
+     ```
+   - Clone each service repository into its directory:
+     ```
+     git clone <repo-url> /opt/user-service
+     ```
 
-4. **Virtual environment & install**
-   - Create a Python virtualenv per service: `python -m venv venv` → `venv/bin/pip install -r requirements.txt`.
-   - Configure environment variables via a `.env` file (DB URL, secret keys).
+4. **Virtualenv & dependencies**
+   - For each service:
+     ```
+     cd /opt/<service>
+     python3 -m venv venv
+     source venv/bin/activate
+     pip install -r requirements.txt
+     ```
+   - Keep service-specific requirements files in each repo.
 
+5. **Configure environment & databases**
+   - Create `.env` files (outside VCS) with service configuration:
+     - `DATABASE_URL`, `SECRET_KEY`, `AUTOMATION_URL`, etc.
+   - Create separate databases (Postgres) for each service:
+     - `UserDB`, `AutomationDB`, `LogDB`
+   - Run migrations (Alembic / ORM scripts) per service.
 
-5. **Configure databases**
-   - Create separate databases for each service (UserDB, AutomationDB, LogDB).
-   - Apply migrations and seed initial data (if any).
+6. **Process supervision (systemd)**
+   - Create a `systemd` unit for each FastAPI service to run uvicorn:
+     - Example unit `/etc/systemd/system/user-service.service`:
+       ```ini
+       [Unit]
+       Description=User Service (FastAPI)
+       After=network.target
 
-6. **Service process management**
-   - Create `systemd` service unit files (or use `supervisord`) to run each FastAPI app on its assigned port:
-     - `User Service` → `localhost:8000`
-     - `Automation Service` → `localhost:8001`
-     - `Notification Service` → `localhost:8002`
-     - `Simulation Service` → `localhost:8003`
-     - `Logging Service` → `localhost:8004`
-   - Enable auto-start and restart on failure.
+       [Service]
+       User=deploy
+       WorkingDirectory=/opt/user-service
+       EnvironmentFile=/opt/user-service/.env
+       ExecStart=/opt/user-service/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000 --workers 3
+       Restart=on-failure
+       RestartSec=5
 
-7. **API Gateway / Reverse proxy**
-   - Configure Nginx (or a small API gateway) on the front-facing host:
-     - Route `/api/users/*` → `http://server-1:8000`
-     - Route `/api/automation/*` → `http://server-2:8001`
-     - Expose only the gateway to the public network; keep service ports internal.
-   - Provide a single client entry point and centralize CORS and rate-limit settings.
+       [Install]
+       WantedBy=multi-user.target
+       ```
+   - Enable and start services:
+     ```
+     sudo systemctl enable user-service
+     sudo systemctl start user-service
+     ```
+
+7. **Nginx as API Gateway / reverse proxy**
+   - Configure Nginx to proxy paths to local service ports and expose HTTPS:
+     - Example `location` blocks:
+       ```
+       location /api/users/     { proxy_pass http://127.0.0.1:8000/; }
+       location /api/automation/ { proxy_pass http://127.0.0.1:8001/; }
+       location /api/notify/    { proxy_pass http://127.0.0.1:8002/; }
+       ```
+   - Use Let’s Encrypt (certbot) to enable TLS for client ↔ gateway encryption.
 
 8. **Inter-service API configuration**
-   - Use REST/JSON endpoints and stable URL contracts (OpenAPI).
-   - Define health-check endpoints (`/health`) for each service.
-   - Configure services to call each other by internal hostnames/IPs and ports (e.g., `http://automation-service:8001/api/...`).
-   - Use a simple service registry file (mapping hostnames → ports) if DNS is not available.
+   - Services communicate via REST/JSON over HTTP to `127.0.0.1:<port>` (internal calls).
+   - Maintain stable OpenAPI/Swagger contracts (FastAPI auto-generates these).
+   - Use health checks: each service exposes `/health` for Nginx/monitoring.
 
-9. **Monitoring & logs**
-   - Send structured logs from services to Logging Service (HTTP POST `/store-log`) and store in LogDB.
-   - Configure basic process monitoring (systemd) and disk/CPU alerts.
+9. **Logging & monitoring**
+   - Services send structured events to Logging Service endpoint (`POST /logs`) and also write to `systemd` journal.
+   - Use `journalctl -u <service>` and cron-based alerts or simple scripts to monitor service health.
 
-10. **Scaling / updates**
-    - To scale a service, provision another VM/server for that service and update Nginx (or add a simple load balancer).
-    - For updates: pull new code → run migrations → restart service unit (zero-downtime can be approximated by staging and swapping).
-
+10. **Deploy / update workflow**
+    - Pull new code, run migrations, restart service:
+      ```
+      git pull
+      source venv/bin/activate
+      pip install -r requirements.txt
+      alembic upgrade head   # if using alembic
+      sudo systemctl restart <service>
+      ```
 
