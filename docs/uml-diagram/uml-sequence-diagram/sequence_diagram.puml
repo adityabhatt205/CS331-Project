@@ -1,0 +1,62 @@
+@startuml
+' Participants = only the application components you provided
+participant "Visualization\n(Front-end)" as Visualization
+participant "User Management\n(Auth / RBAC)" as UserManagement
+participant "Automation\n(Rule Engine / Control)" as Automation
+participant "Device Integration\n(PLC / Sensors)" as DeviceIntegration
+participant "Event Detection\n(Anomaly / Fault)" as EventDetection
+participant "Notification\n(Alerting / Escalation)" as Notification
+participant "Logging\n(Audit / Historical)" as Logging
+participant "Simulation\n(Virtual Factory / Predictive)" as Simulation
+
+' --- User interacts with Visualization (front-end) — represented as external input to Visualization
+note right of Visualization
+  End users interact with the system through
+  the Visualization component (web UI / dashboard).
+end note
+
+' 1. Login / Auth flow
+Visualization -> UserManagement : Authenticate user (credentials / token)
+UserManagement --> Visualization : Auth token / roles (200 OK)
+
+' 2. User requests live dashboard / control or simulation
+Visualization -> Automation : Request realtime state / execute control (with auth token)
+activate Automation
+
+' 3. Automation queries device state or issues control
+Automation -> DeviceIntegration : Read sensor/state OR Send control command
+activate DeviceIntegration
+DeviceIntegration --> Automation : Ack / current device state
+deactivate DeviceIntegration
+
+' 4. Automation logs the action / event
+Automation -> Logging : Persist event / command audit
+
+' 5. Event detection pipeline (continuous or on data push)
+Automation -> EventDetection : Push sensor data / state snapshot
+activate EventDetection
+EventDetection --> Automation : EventDetected? (anomaly/fault) / classification
+deactivate EventDetection
+
+' 6. If event/fault detected -> notifications and logging
+alt event/fault detected
+    Automation -> Notification : Create alert (with context)
+    Notification -> Logging : Persist alert history
+    Notification --> Automation : Alert delivery status
+end
+
+' 7. Visualization may request a simulation run (what-if / predictive)
+Visualization -> Simulation : Request scenario simulation (params)
+activate Simulation
+Simulation -> Automation : Request model inputs / recent state
+Automation --> Simulation : Provide state / model inputs
+Simulation --> Visualization : Simulation results / predicted outcomes
+deactivate Simulation
+
+' 8. Automation may request simulation for predictive control
+Automation -> Simulation : Ask for prediction / recommend action
+Simulation --> Automation : Predicted outcome / suggested parameters
+
+deactivate Automation
+@enduml
+
