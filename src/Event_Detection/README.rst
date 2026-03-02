@@ -54,7 +54,7 @@ Architecture
     │           EVENT DETECTION SERVICE          │
     │                                            │
     │   ┌──────────┐      ┌──────────────────┐   │
-    │   │ REST API │─────▶│  Rules Engine   │    |
+    │   │ REST API │─────>│  Rules Engine    │   |
     │   │ (FastAPI)│      │  (17 rules)      │   │
     │   └──────────┘      └──────────────────┘   │
     │         │                    │             │
