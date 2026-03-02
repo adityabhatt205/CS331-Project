@@ -1,5 +1,5 @@
 """
-Automation Service 
+Event-detection Service 
 =============================================================
 Responsibilities:
   - Ingest sensor data from production stations
